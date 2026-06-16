@@ -10,6 +10,8 @@ public class SaveData
     public float idleIncomeMultiplier;
     public List<string> monsterNames = new List<string>();
     public List<int> monsterCount = new List<int>();
+    public List<string> shinyNames = new List<string>();
+    public List<int> shinyCount = new List<int>();
     public string lastSaveTimeUTC;
 }
 
@@ -32,6 +34,12 @@ public class SaveManager : MonoBehaviour
             data.monsterCount.Add(kvp.Value);
         }
 
+        foreach (var kvp in CollectionManager.Instance.GetOwnedShiniesSnapshot())
+        {
+            data.shinyNames.Add(kvp.Key);
+            data.shinyCount.Add(kvp.Value);
+        }
+
         File.WriteAllText(SavePath, JsonUtility.ToJson(data));
     }
 
@@ -44,13 +52,17 @@ public class SaveManager : MonoBehaviour
         CurrencyManager.Instance.currency = save.currency;
         CurrencyManager.Instance.idleIncomeMultiplier = save.idleIncomeMultiplier;
 
-        var snapshot = new Dictionary<string, int>();
+        var normalSnapshot = new Dictionary<string, int>();
         for(int i = 0; i < save.monsterNames.Count; i++)
         {
-            snapshot[save.monsterNames[i]] = save.monsterCount[i];
+            normalSnapshot[save.monsterNames[i]] = save.monsterCount[i];
         }
 
-        CollectionManager.Instance.LoadFromSnapshot(snapshot);
+        var shinySnapshot = new Dictionary<string, int>();
+        for (int i = 0; i < save.shinyNames.Count; i++)
+            shinySnapshot[save.shinyNames[i]] = save.shinyCount[i];
+
+        CollectionManager.Instance.LoadFromSnapshot(normalSnapshot, shinySnapshot);
 
         if (DateTime.TryParse(save.lastSaveTimeUTC, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastTime))
         {

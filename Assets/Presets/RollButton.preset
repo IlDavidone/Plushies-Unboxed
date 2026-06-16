@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RollButton
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 2987f9b9419989fadb7ae15ad8860699, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: Assembly-CSharp::RollButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gachaManager
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: monsterBox
+    value: 
+    objectReference: {fileID: 11400000, guid: 513bc0c4f152d9410ac8af0ff01eb96c, type: 2}
+  - target: {fileID: 0}
+    propertyPath: revealController
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rarityConfigs.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: 'rarityConfigs.Array.data[0]'
+    value: 
+    objectReference: {fileID: 11400000, guid: 70baaa1aa6bdf3a7288843bc41795b7e, type: 2}
+  - target: {fileID: 0}
+    propertyPath: 'rarityConfigs.Array.data[1]'
+    value: 
+    objectReference: {fileID: 11400000, guid: 06a828ce52fdda517b41747e8960e31a, type: 2}
+  - target: {fileID: 0}
+    propertyPath: 'rarityConfigs.Array.data[2]'
+    value: 
+    objectReference: {fileID: 11400000, guid: 6633a54b926a2e177ba018639e06c981, type: 2}
+  - target: {fileID: 0}
+    propertyPath: 'rarityConfigs.Array.data[3]'
+    value: 
+    objectReference: {fileID: 11400000, guid: 96b71931b8a32393eb7b55a0c7f83c2d, type: 2}
+  - target: {fileID: 0}
+    propertyPath: 'rarityConfigs.Array.data[4]'
+    value: 
+    objectReference: {fileID: 11400000, guid: b61c85dad392f4abf97aea178ff53fa5, type: 2}
+  m_ExcludedProperties: []
+  m_CoupledType:
+    m_NativeTypeID: 0
+    m_ManagedTypePPtr: {fileID: 0}
+    m_ManagedTypeFallback: 
+  m_CoupledProperties: []

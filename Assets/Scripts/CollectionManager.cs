@@ -59,6 +59,11 @@ public class CollectionManager : MonoBehaviour
     }
 
     public Dictionary<string, int> GetOwnedMonstersSnapshot() => new Dictionary<string, int>(ownedMonsters);
+    public Dictionary<string, int> GetOwnedShiniesSnapshot() => new Dictionary<string, int>(ownedShinies);
 
-    public void LoadFromSnapshot(Dictionary<string, int> snapshot) => ownedMonsters = snapshot;
+    public void LoadFromSnapshot(Dictionary<string, int> normalSnapshot, Dictionary<string, int> shiniesSnapshot)
+    {
+        ownedMonsters = normalSnapshot;
+        ownedShinies = shiniesSnapshot;
+    }
 }
