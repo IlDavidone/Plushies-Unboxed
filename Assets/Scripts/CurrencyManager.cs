@@ -38,7 +38,7 @@ public class CurrencyManager : MonoBehaviour
 
     void Update() //passive income calculator
     {
-        float income = ShelfManager.Instance.GetTotalShelvesIncome() * idleIncomeMultiplier;
+        float income = ShelfManager.Instance.GetTotalIncome() * idleIncomeMultiplier;
         AddCurrency(income * Time.deltaTime);
     }
 }

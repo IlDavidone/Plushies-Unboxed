@@ -12,6 +12,6 @@ public class CurrencyText : MonoBehaviour
 
     void ChangeText(double amount)
     {
-        currencyText.text = "Money: " + amount;
+        currencyText.text = "Money: " + amount.ToString("0.0");
     }
 }

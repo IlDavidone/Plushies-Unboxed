@@ -8,12 +8,11 @@ public class CollectionManager : MonoBehaviour
 {
     public static CollectionManager Instance;
 
-    private Dictionary<string, int> ownedMonsters = new Dictionary<string, int>();
-    private Dictionary<string, int> ownedShinies = new Dictionary<string, int>();
+    public List<OwnedMonster> ownedMonsters = new List<OwnedMonster>();
 
     public List<Monsters> allMonsterData; //reference for lookups by name
 
-    public event Action<Monsters, int> OnMonsterCollected;
+    public event Action<OwnedMonster> OnMonsterAdded;
 
     void Awake()
     {
@@ -25,45 +24,21 @@ public class CollectionManager : MonoBehaviour
         Instance = this;
     }
 
-    public void AddMonster(Monsters monsterData, bool isShiny)      //dict holds a reference to currently used dictionary
+    public void AddMonsterInstance(OwnedMonster monster)
     {
-        var dict = isShiny ? ownedShinies : ownedMonsters;
-
-        if (!dict.ContainsKey(monsterData.monsterName))
-        {
-            dict[monsterData.monsterName] = 0;
-        }
-
-        dict[monsterData.monsterName]++;
-        OnMonsterCollected?.Invoke(monsterData, ownedMonsters[monsterData.monsterName]);
+        ownedMonsters.Add(monster);
+        OnMonsterAdded?.Invoke(monster);
     }
 
-    public int GetMonsterCount(Monsters monsterData)
+    public int GetMonsterCount(string monsterName)
     {
-        return ownedMonsters.TryGetValue(monsterData.name, out int count) ? count : 0;
+        return ownedMonsters.FindAll(m => m.monsterName == monsterName).Count;
     }
 
-    public float GetTotalIncomePerSecond()
-    {
-        float total = 0f;
-        foreach(var kvp in ownedMonsters)
-        {
-            Monsters monsterData = allMonsterData.Find(m => m.monsterName == kvp.Key);
-            if(monsterData != null)
-            {
-                total += monsterData.baseIncome * kvp.Value;
-            } 
-        }
+    public List<OwnedMonster> GetOwnedMonstersSnapshot() => new List<OwnedMonster>(ownedMonsters);
 
-        return total;
-    }
-
-    public Dictionary<string, int> GetOwnedMonstersSnapshot() => new Dictionary<string, int>(ownedMonsters);
-    public Dictionary<string, int> GetOwnedShiniesSnapshot() => new Dictionary<string, int>(ownedShinies);
-
-    public void LoadFromSnapshot(Dictionary<string, int> normalSnapshot, Dictionary<string, int> shiniesSnapshot)
+    public void LoadFromSnapshot(List<OwnedMonster> normalSnapshot)
     {
         ownedMonsters = normalSnapshot;
-        ownedShinies = shiniesSnapshot;
     }
 }
