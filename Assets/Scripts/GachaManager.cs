@@ -2,17 +2,20 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GachaManager : MonoBehaviour
 {
+    [SerializeField] private float shinyChance = 0.5f;
+
     public List<Monsters> allMonsters;
 
-    [SerializeField] private float pityCounter = 0;
-    [SerializeField] private float pityThreshold = 20;
+    private Dictionary<MonsterBoxes, int> pityCounters = new Dictionary<MonsterBoxes, int>(); 
+    private Dictionary<MonsterBoxes, int> exclusiveMonsterPityCounter = new Dictionary<MonsterBoxes, int>();
     
-    public Monsters RollMonster()
+    public (Monsters monster, bool isShiny) RollMonster(MonsterBoxes monsterBox)
     {
-        pityCounter++;
+        /*pityCounter++;
 
         List<Monsters> pool = allMonsters;
 
@@ -21,7 +24,33 @@ public class GachaManager : MonoBehaviour
             pool.FindAll(m => m.rarity >= Rarity.Rare);
             pityCounter = 0;
         }
+        */
 
+        if(!pityCounters.ContainsKey(monsterBox))
+            pityCounters[monsterBox] = 0;
+
+        pityCounters[monsterBox]++;
+
+        List<Monsters> pool = monsterBox.monstersPool;
+
+        if(pityCounters[monsterBox] >= monsterBox.pityThreshold)
+        {
+            pool = monsterBox.monstersPool.FindAll(m => m.rarity >= monsterBox.guaranteedPityRarity);
+            pityCounters[monsterBox] = 0;
+        }
+
+        Monsters rollResult = PickWeighted(pool);
+
+        if(rollResult.rarity >= monsterBox.guaranteedPityRarity)   //reset pity counter even if pulled rarity exceeds pity one naturally
+            pityCounters[monsterBox] = 0;
+
+        bool isShiny = Random.value <= shinyChance;
+
+        return (rollResult, isShiny);
+    }
+
+    private Monsters PickWeighted(List<Monsters> pool)
+    {
         float totalWeight = 0f;
         foreach(var m in pool)
         {

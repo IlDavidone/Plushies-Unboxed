@@ -2,14 +2,18 @@ using UnityEngine;
 
 public class RollButton : MonoBehaviour
 {
-    public GachaManager gachaManager;
+    [SerializeField] private GachaManager gachaManager;
+    [SerializeField] private MonsterBoxes monsterBox;
 
     public void Click()
     {
-        Monsters result = gachaManager.RollMonster();
+        if(!CurrencyManager.Instance.TrySpend(monsterBox.cost)) return;
 
-        CollectionManager.Instance.AddMonster(result);
+        var result = gachaManager.RollMonster(monsterBox);
+        CollectionManager.Instance.AddMonster(result.monster, result.isShiny);
 
-        Debug.Log($"Pulled: {result.monsterName} ({result.rarity})");
+        string shinyDescriptor = result.isShiny ? "Shiny" : "Normal";
+
+        Debug.Log($"Pulled: {result.monster.monsterName} ({result.monster.rarity}, {shinyDescriptor}) from box: {monsterBox.name}");
     }
 }

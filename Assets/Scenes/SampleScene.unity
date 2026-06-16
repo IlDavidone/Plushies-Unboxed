@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 521259677}
   - component: {fileID: 521259676}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BaseBoxRoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RollButton
   gachaManager: {fileID: 223206150}
+  monsterBox: {fileID: 11400000, guid: 513bc0c4f152d9410ac8af0ff01eb96c, type: 2}
 --- !u!114 &521259677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,7 +1146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Roll
+  m_text: 'Roll - Cost: 100
 
 '
   m_isRightToLeft: 0
@@ -1174,8 +1175,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

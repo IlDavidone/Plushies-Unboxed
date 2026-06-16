@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class CollectionManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class CollectionManager : MonoBehaviour
     public static CollectionManager Instance;
 
     private Dictionary<string, int> ownedMonsters = new Dictionary<string, int>();
+    private Dictionary<string, int> ownedShinies = new Dictionary<string, int>();
+
     public List<Monsters> allMonsterData; //reference for lookups by name
 
     public event Action<Monsters, int> OnMonsterCollected;
@@ -22,14 +25,16 @@ public class CollectionManager : MonoBehaviour
         Instance = this;
     }
 
-    public void AddMonster(Monsters monsterData)
+    public void AddMonster(Monsters monsterData, bool isShiny)      //dict holds a reference to currently used dictionary
     {
-        if (!ownedMonsters.ContainsKey(monsterData.monsterName))
+        var dict = isShiny ? ownedShinies : ownedMonsters;
+
+        if (!dict.ContainsKey(monsterData.monsterName))
         {
-            ownedMonsters[monsterData.monsterName] = 0;
+            dict[monsterData.monsterName] = 0;
         }
 
-        ownedMonsters[monsterData.monsterName]++;
+        dict[monsterData.monsterName]++;
         OnMonsterCollected?.Invoke(monsterData, ownedMonsters[monsterData.monsterName]);
     }
 
