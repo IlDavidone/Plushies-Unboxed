@@ -49,6 +49,11 @@ public class RevealController : MonoBehaviour
     private void OnKeep()
     {
         CollectionManager.Instance.AddMonster(currentMonster, isCurrentMonsterShiny);
+        string ShelfSlotID = ShelfManager.Instance.GetFirstEmptySlotID();
+        if(ShelfSlotID != null)
+        {
+            ShelfManager.Instance.PlaceOnShelf(ShelfSlotID, currentMonster, isCurrentMonsterShiny);
+        }
         revealPanel.SetActive(false);
     }
 

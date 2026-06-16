@@ -16,7 +16,7 @@ MonoBehaviour:
   baseIcon: {fileID: 0}
   shinyIcon: {fileID: 0}
   rarity: 1
-  baseIncome: 10
+  baseIncome: 0.4
   rollWeight: 25
   sellValue: 80
   shinySellValueMultiplier: 3

@@ -9,6 +9,7 @@ public class CurrencyManager : MonoBehaviour
     public float clickPower = 1f;
     public float idleIncomeMultiplier = 1f;
 
+
     public event Action<double> OnCurrencyChanged;
 
     void Awake()
@@ -37,7 +38,7 @@ public class CurrencyManager : MonoBehaviour
 
     void Update() //passive income calculator
     {
-        float income = CollectionManager.Instance.GetTotalIncomePerSecond() * idleIncomeMultiplier;
+        float income = ShelfManager.Instance.GetTotalShelvesIncome() * idleIncomeMultiplier;
         AddCurrency(income * Time.deltaTime);
     }
 }
