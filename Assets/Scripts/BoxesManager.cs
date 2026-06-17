@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
@@ -9,9 +10,14 @@ public class BoxesManager : MonoBehaviour
     public static BoxesManager Instance;
 
     public List<MonsterBoxes> monsterBoxes = new List<MonsterBoxes>();
+    [SerializeField] private RarityConfig[] rarityConfigs;
     
+    [SerializeField] private GachaManager gachaManager;
+
     [SerializeField] private TMP_Text boxNameText;  
     [SerializeField] private Image boxImage;
+    [SerializeField] private Button boxButton;
+    [SerializeField] private RevealController revealController;
     [SerializeField] private Button leftArrowButton;
     [SerializeField] private Button rightArrowButton;
 
@@ -31,9 +37,11 @@ public class BoxesManager : MonoBehaviour
     {
         leftArrowButton.onClick.RemoveAllListeners();
         rightArrowButton.onClick.RemoveAllListeners();
-
+        boxButton.onClick.RemoveAllListeners();
+        
         leftArrowButton.onClick.AddListener(CyclePrevious);
         rightArrowButton.onClick.AddListener(CycleNext);
+        boxButton.onClick.AddListener(OpenBox);
 
         UpdateUI();
     }
@@ -83,5 +91,16 @@ public class BoxesManager : MonoBehaviour
 
         boxNameText.text = monsterBox.boxName;
         boxImage.sprite = monsterBox.boxIcon;
+    }
+
+    private void OpenBox()
+    {
+        if(!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost)) return;
+
+        var result = gachaManager.RollMonster(monsterBoxes[currentBoxIndex]);
+
+        RarityConfig config = Array.Find(rarityConfigs, r => r.rarity == result.monster.rarity);
+    
+        revealController.PlayReveal(result.monster, result.isShiny, config);
     }
 }
