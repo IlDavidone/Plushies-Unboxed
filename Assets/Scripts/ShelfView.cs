@@ -5,6 +5,7 @@ public class ShelfView : MonoBehaviour
 {
     public Image[] slotImages;
     public GameObject[] emptyOverlays;
+    public GameObject[] removeButtons;
 
     public void RefreshView()
     {
@@ -13,7 +14,9 @@ public class ShelfView : MonoBehaviour
             ShelfSlot slot = ShelfManager.Instance.GetSlot(i);
             if(slot == null) continue;
 
-            if (!slot.IsEmpty)
+            bool occupied = !slot.IsEmpty;
+
+            if (occupied)
             {
                 Monsters data = LookupMonstersData(slot.displayedMonster.monsterName);
                 if(data == null) continue;
@@ -29,6 +32,11 @@ public class ShelfView : MonoBehaviour
             {
                 slotImages[i].enabled = false;
                 if (emptyOverlays.Length > i) emptyOverlays[i].SetActive(true);
+            }
+
+            if(removeButtons.Length > i)
+            {
+                removeButtons[i].SetActive(occupied);
             }
         }
     }

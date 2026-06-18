@@ -117,6 +117,16 @@ public class ShelfManager : MonoBehaviour
         return total;
     }
 
+    public bool IsInstanceEquipped(string instanceId)
+{
+    foreach (var slot in slots)
+    {
+        if (!slot.IsEmpty && slot.displayedMonster.instanceId == instanceId)
+            return true;
+    }
+    return false;
+}
+
  
     public List<ShelfSlotSaveData> GetSaveSnapshot()
     {
