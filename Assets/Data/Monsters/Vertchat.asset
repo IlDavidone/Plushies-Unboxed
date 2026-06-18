@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
+  m_Name: Vertchat
+  m_EditorClassIdentifier: Assembly-CSharp::Monsters
+  monsterName: Vertchat
+  baseIcon: {fileID: 3841290324716842973, guid: 93388a775eda88a64a98745c6ff17a55, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: 'After drinking too much FountainMew, it is now a green muppet.
+
+'
+  rarity: 0
+  rollWeight: 55
+  baseIncome: 0.2
+  sellValue: 8
+  shinySellValueMultiplier: 3
+  uniquePowerId: 0
+  uniquePowerDescription: 

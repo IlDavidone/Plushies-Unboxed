@@ -16,11 +16,22 @@ MonoBehaviour:
   boxIcon: {fileID: 0}
   cost: 1000
   monstersPool:
+  - {fileID: 11400000, guid: 3d0ff115c75a34ad4ae9de39f0cd550f, type: 2}
+  - {fileID: 11400000, guid: b5ecb1e62b4918509804a6dc90a21111, type: 2}
   - {fileID: 11400000, guid: 21f7dc0cb0c4026658aa51eec1995150, type: 2}
-  - {fileID: 11400000, guid: a5650dd0ac0df3e4d929c5598d76d71e, type: 2}
+  - {fileID: 11400000, guid: 18573607cb9e9a9ffb02bce332ca9cb1, type: 2}
+  - {fileID: 11400000, guid: 43dc31dcf9f3434c298954246d889b3f, type: 2}
   - {fileID: 11400000, guid: c65e854446310eea7aaf28cb37dead0e, type: 2}
+  - {fileID: 11400000, guid: 327806ff605df60289f01a8e6254013d, type: 2}
+  - {fileID: 11400000, guid: cae968220e4b20b25a10fc72f829d1b5, type: 2}
+  - {fileID: 11400000, guid: 3e9ae26e39d8c13c08a98f086a66134d, type: 2}
+  - {fileID: 11400000, guid: 7bf6679951026ae2185b632f05d9d226, type: 2}
+  - {fileID: 11400000, guid: 36bf44f65758cd3218caee08617da727, type: 2}
+  - {fileID: 11400000, guid: ea7558ecc64177b55b9edde750cf0712, type: 2}
   - {fileID: 11400000, guid: 7959e852ba069d6c697cbf203de73e34, type: 2}
+  - {fileID: 11400000, guid: 55053119587bdcd05944f9779fef7a29, type: 2}
+  - {fileID: 11400000, guid: a5650dd0ac0df3e4d929c5598d76d71e, type: 2}
   pityThreshold: 20
   guaranteedPityRarity: 2
-  exclusiveMonsterPity: 100
-  exclusiveMonster: {fileID: 0}
+  exclusiveMonsterPity: 2
+  exclusiveMonster: {fileID: 11400000, guid: 55053119587bdcd05944f9779fef7a29, type: 2}

@@ -10,11 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
-  m_Name: Common
+  m_Name: TavernMaster
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
-  monsterName: Commoner
-  icon: {fileID: 0}
-  rarity: 0
-  baseIncome: 5
-  rollWeight: 90
-  flavorText: 
+  monsterName: Tavern's Master
+  baseIcon: {fileID: 3204515261112718985, guid: b3e4aa3a43db4d8b991886be44ed2868, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: 'Believes that he is the No.1 mini painter, but he is MID at best.
+
+'
+  rarity: 4
+  rollWeight: 0.3
+  baseIncome: 40
+  sellValue: 5000
+  shinySellValueMultiplier: 3
+  uniquePowerId: 5
+  uniquePowerDescription: 

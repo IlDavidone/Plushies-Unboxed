@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
-  m_Name: Test1
+  m_Name: KopiKuching
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
-  monsterName: test
-  baseIcon: {fileID: 8854674128575638461, guid: 2424811675ef8c3d68f5e0f62202049a, type: 3}
+  monsterName: Kopi Kuching
+  baseIcon: {fileID: 3394113221357313813, guid: 36c2d0c7048af4bd593dbe9f80d7c619, type: 3}
   shinyIcon: {fileID: 0}
-  flavorText: 
-  rarity: 0
-  rollWeight: 60
-  baseIncome: 0.15
-  sellValue: 25
+  flavorText: "World class barista, 50% coffee, 30% cat and 20% whimsy (Caution it
+    is not, in fact, edible) \n"
+  rarity: 2
+  rollWeight: 8
+  baseIncome: 3.25
+  sellValue: 150
   shinySellValueMultiplier: 3
   uniquePowerId: 0
   uniquePowerDescription: 

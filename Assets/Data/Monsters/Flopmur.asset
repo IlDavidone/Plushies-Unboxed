@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
+  m_Name: Flopmur
+  m_EditorClassIdentifier: Assembly-CSharp::Monsters
+  monsterName: Flopmur
+  baseIcon: {fileID: 3534985144550079384, guid: a2fe9ea101be9dad3af7e99a6d9e2574, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: 'Super shy, loves to sing when she is alone.
+
+'
+  rarity: 0
+  rollWeight: 50
+  baseIncome: 0.28
+  sellValue: 11
+  shinySellValueMultiplier: 3
+  uniquePowerId: 0
+  uniquePowerDescription: 

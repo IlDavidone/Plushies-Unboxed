@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
+  m_Name: Serdna
+  m_EditorClassIdentifier: Assembly-CSharp::Monsters
+  monsterName: Serdna
+  baseIcon: {fileID: 6455886584170928189, guid: af9300c88f2427983bc580115fd68ee2, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: "82% di spazio di archiviazione usato\nPuoi liberare spazio o acquistare
+    altro spazio di archiviazione per Drive, Gmail e Google Foto. Ottieni altro spazio
+    di archiviazione con uno sconto del \u2014 75% per 3 mesi. Prezzo personalizzato.\nPlushies
+    Unboxed\n \n \n \n \n                                \n \n \nA friendly familiar
+    that belongs to Owl Wizard.\n \n \n \t \t \n\t\t\nA friendly familiar that belongs
+    to Owl Wizard.\nAttiva il supporto per lo screen reader\nTentativo di connessione\u2026\nPer
+    attivare il supporto per lo screen reader, premi Ctrl+Alt+Z Per informazioni
+    sulle scorciatoie da tastiera, premi Ctrl+barra\nLeopardo anonimo si \xE8 unito
+    al documento.\nStai tentando di fare la seguente azione: apri il menu elimina?\nPuoi
+    ora attivare le scorciatoie compatibili per fogli di lavoro per poter utilizzare
+    le combinazioni di tasti a cui sei abituato\n"
+  rarity: 1
+  rollWeight: 25
+  baseIncome: 0.85
+  sellValue: 38
+  shinySellValueMultiplier: 3
+  uniquePowerId: 0
+  uniquePowerDescription: 

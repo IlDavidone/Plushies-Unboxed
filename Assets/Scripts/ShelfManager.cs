@@ -117,6 +117,50 @@ public class ShelfManager : MonoBehaviour
         return total;
     }
 
+    private float GetPerkIncomeMult(PerkID perk)
+    {
+        switch (perk)
+        {
+            case PerkID.SparkleDust: return 1.05f;
+            case PerkID.CozyCorner: return 1.10f;
+            case PerkID.ProductivePal: return 1.03f;
+            default: return 1f;
+        }
+    }
+
+    public float GetGlobalShinyBonus()
+    {
+        float bonus = 0f;
+        foreach(var slot in slots)
+        {
+            if(slot.displayedMonster.perk1 == PerkID.QuickPaws) bonus += 0.02f;
+            if(slot.displayedMonster.perk2 == PerkID.QuickPaws) bonus += 0.02f;
+        }
+        return bonus;
+    }
+
+    public int GetGlobalPityReduction()
+    {
+        int pityReduction = 0;
+        foreach(var slot in slots)
+        {
+            if(slot.displayedMonster.perk1 == PerkID.LuckySwing) pityReduction++;
+            if(slot.displayedMonster.perk2 == PerkID.LuckySwing) pityReduction++;
+        }
+        return pityReduction;
+    }
+
+    public float GetGlobalBoxPercentageReduction()
+    {
+        int boxCostReduction = 0;
+        foreach(var slot in slots)
+        {
+            if(slot.displayedMonster.perk1 == PerkID.GiftPaper) boxCostReduction++;
+            if(slot.displayedMonster.perk2 == PerkID.GiftPaper) boxCostReduction++;
+        }
+        return boxCostReduction;
+    }
+
     public bool IsInstanceEquipped(string instanceId)
 {
     foreach (var slot in slots)

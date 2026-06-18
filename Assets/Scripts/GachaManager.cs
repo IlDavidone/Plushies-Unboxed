@@ -1,8 +1,6 @@
+using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GachaManager : MonoBehaviour
 {
@@ -31,6 +29,18 @@ public class GachaManager : MonoBehaviour
 
         pityCounters[monsterBox]++;
 
+        if(!exclusiveMonsterPityCounter.ContainsKey(monsterBox))
+            exclusiveMonsterPityCounter[monsterBox] = 0;
+
+        exclusiveMonsterPityCounter[monsterBox]++;
+
+        if(exclusiveMonsterPityCounter[monsterBox] >= monsterBox.exclusiveMonsterPity)
+        {
+            exclusiveMonsterPityCounter[monsterBox] = 0;
+            Monsters exclusiveMonster = allMonsters.Find(m => m.rarity == Rarity.Secret);
+            return (exclusiveMonster, UnityEngine.Random.value <= shinyChance);
+        }
+
         List<Monsters> pool = monsterBox.monstersPool;
 
         if(pityCounters[monsterBox] >= monsterBox.pityThreshold)
@@ -44,7 +54,7 @@ public class GachaManager : MonoBehaviour
         if(rollResult.rarity >= monsterBox.guaranteedPityRarity)   //reset pity counter even if pulled rarity exceeds pity one naturally
             pityCounters[monsterBox] = 0;
 
-        bool isShiny = Random.value <= shinyChance;
+        bool isShiny = UnityEngine.Random.value <= shinyChance;
 
         return (rollResult, isShiny);
     }
@@ -57,7 +67,7 @@ public class GachaManager : MonoBehaviour
             totalWeight += m.rollWeight;
         }
 
-        float roll = Random.Range(0, totalWeight);
+        float roll = UnityEngine.Random.Range(0, totalWeight);
         float cumulative = 0f;
         foreach(var m in pool)
         {

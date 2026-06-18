@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
+  m_Name: Nyk
+  m_EditorClassIdentifier: Assembly-CSharp::Monsters
+  monsterName: 'Nyk '
+  baseIcon: {fileID: 3868264725213549148, guid: 275371488108cb221ac886589b52e177, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: 'Don''t let his innocent looks fool you, he spies for secret organisations.
+    (He''s dating Owl Wizard)
+
+'
+  rarity: 3
+  rollWeight: 3
+  baseIncome: 9
+  sellValue: 550
+  shinySellValueMultiplier: 3
+  uniquePowerId: 0
+  uniquePowerDescription: 

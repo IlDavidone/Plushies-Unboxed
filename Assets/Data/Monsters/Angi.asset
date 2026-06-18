@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
-  m_Name: Test1 2
+  m_Name: Angi
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
-  monsterName: test3
-  baseIcon: {fileID: 0}
+  monsterName: Angi
+  baseIcon: {fileID: 6223316047101794331, guid: e2963a511efbdd38594d5e763cccdb30, type: 3}
   shinyIcon: {fileID: 0}
-  rarity: 2
-  baseIncome: 1.2
-  rollWeight: 12
-  sellValue: 200
+  flavorText: 'This fungi packs a punch and seeks out Button''imps to fight
+
+'
+  rarity: 1
+  rollWeight: 24
+  baseIncome: 0.9
+  sellValue: 40
   shinySellValueMultiplier: 3
-  flavorText: 
+  uniquePowerId: 0
+  uniquePowerDescription: 

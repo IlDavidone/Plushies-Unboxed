@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
-  m_Name: Test1 3
+  m_Name: Goopy
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
-  monsterName: test4
-  baseIcon: {fileID: 0}
+  monsterName: Goopy
+  baseIcon: {fileID: 7239147461164205290, guid: d5b1ab12cce039f3a963033ae7eac9d8, type: 3}
   shinyIcon: {fileID: 0}
-  rarity: 3
-  baseIncome: 3.8
-  rollWeight: 3
-  sellValue: 400
+  flavorText: 'It is rotund.
+
+'
+  rarity: 0
+  rollWeight: 60
+  baseIncome: 0.22
+  sellValue: 9
   shinySellValueMultiplier: 3
-  flavorText: 
+  uniquePowerId: 0
+  uniquePowerDescription: 

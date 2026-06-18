@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
+  m_Name: Button'imp
+  m_EditorClassIdentifier: Assembly-CSharp::Monsters
+  monsterName: Button'imp
+  baseIcon: {fileID: -6764278559788484247, guid: 02c0c430c691ccdc49ec0cb3359c5f09, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: 'Likes stealing buttons off people''s clothes, keeps up to 420,000
+    per horde.
+
+'
+  rarity: 0
+  rollWeight: 55
+  baseIncome: 0.25
+  sellValue: 10
+  shinySellValueMultiplier: 3
+  uniquePowerId: 0
+  uniquePowerDescription: 

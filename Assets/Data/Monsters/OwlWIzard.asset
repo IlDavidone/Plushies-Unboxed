@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4ab2e3fe20b79b5aed159fa8508097, type: 3}
+  m_Name: OwlWIzard
+  m_EditorClassIdentifier: Assembly-CSharp::Monsters
+  monsterName: Owl Wizard
+  baseIcon: {fileID: -8333950249540938994, guid: d823f9a4687c5ec8fbb5d2d4e4c889bc, type: 3}
+  shinyIcon: {fileID: 0}
+  flavorText: He thinks he's a wizard, but is he tho? Hooooooot knows?
+  rarity: 0
+  rollWeight: 60
+  baseIncome: 0.2
+  sellValue: 8
+  shinySellValueMultiplier: 3
+  uniquePowerId: 0
+  uniquePowerDescription: 
