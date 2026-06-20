@@ -302,12 +302,12 @@ TextureImporter:
       name: box open sprite-sheet_0
       rect:
         serializedVersion: 2
-        x: 14546
-        y: 581
-        width: 61
-        height: 90
+        x: 0
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -324,12 +324,12 @@ TextureImporter:
       name: box open sprite-sheet_1
       rect:
         serializedVersion: 2
-        x: 15057
-        y: 620
-        width: 61
-        height: 51
+        x: 511
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,12 +346,12 @@ TextureImporter:
       name: box open sprite-sheet_2
       rect:
         serializedVersion: 2
-        x: 15575
-        y: 653
-        width: 48
-        height: 18
+        x: 1022
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -368,12 +368,12 @@ TextureImporter:
       name: box open sprite-sheet_3
       rect:
         serializedVersion: 2
-        x: 21629
-        y: 540
-        width: 201
-        height: 131
+        x: 1533
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -390,12 +390,12 @@ TextureImporter:
       name: box open sprite-sheet_4
       rect:
         serializedVersion: 2
-        x: 22131
-        y: 431
-        width: 217
-        height: 237
+        x: 2044
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -412,12 +412,12 @@ TextureImporter:
       name: box open sprite-sheet_5
       rect:
         serializedVersion: 2
-        x: 13519
-        y: 489
-        width: 71
-        height: 95
+        x: 2555
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -434,12 +434,12 @@ TextureImporter:
       name: box open sprite-sheet_6
       rect:
         serializedVersion: 2
-        x: 14033
-        y: 537
-        width: 66
-        height: 95
+        x: 3066
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: box open sprite-sheet_7
       rect:
         serializedVersion: 2
-        x: 22635
-        y: 342
-        width: 229
-        height: 246
+        x: 3577
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: box open sprite-sheet_8
       rect:
         serializedVersion: 2
-        x: 103
-        y: 5
-        width: 330
-        height: 296
+        x: 4088
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -500,12 +500,12 @@ TextureImporter:
       name: box open sprite-sheet_9
       rect:
         serializedVersion: 2
-        x: 618
-        y: 5
-        width: 321
-        height: 305
+        x: 4599
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -522,12 +522,12 @@ TextureImporter:
       name: box open sprite-sheet_10
       rect:
         serializedVersion: 2
-        x: 1132
-        y: 5
-        width: 316
-        height: 309
+        x: 5110
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -544,12 +544,12 @@ TextureImporter:
       name: box open sprite-sheet_11
       rect:
         serializedVersion: 2
-        x: 1644
-        y: 5
-        width: 313
-        height: 311
+        x: 5621
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -566,12 +566,12 @@ TextureImporter:
       name: box open sprite-sheet_12
       rect:
         serializedVersion: 2
-        x: 2156
-        y: 5
-        width: 312
-        height: 313
+        x: 6132
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -588,12 +588,12 @@ TextureImporter:
       name: box open sprite-sheet_13
       rect:
         serializedVersion: 2
-        x: 2667
-        y: 5
-        width: 311
-        height: 314
+        x: 6643
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -610,12 +610,12 @@ TextureImporter:
       name: box open sprite-sheet_14
       rect:
         serializedVersion: 2
-        x: 3178
-        y: 5
-        width: 311
-        height: 314
+        x: 7154
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -632,12 +632,12 @@ TextureImporter:
       name: box open sprite-sheet_15
       rect:
         serializedVersion: 2
-        x: 3689
-        y: 5
-        width: 311
-        height: 314
+        x: 7665
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -654,12 +654,12 @@ TextureImporter:
       name: box open sprite-sheet_16
       rect:
         serializedVersion: 2
-        x: 4200
-        y: 5
-        width: 311
-        height: 313
+        x: 8176
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -676,12 +676,12 @@ TextureImporter:
       name: box open sprite-sheet_17
       rect:
         serializedVersion: 2
-        x: 4710
-        y: 5
-        width: 314
-        height: 311
+        x: 8687
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -698,12 +698,12 @@ TextureImporter:
       name: box open sprite-sheet_18
       rect:
         serializedVersion: 2
-        x: 5219
-        y: 5
-        width: 318
-        height: 307
+        x: 9198
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -720,12 +720,12 @@ TextureImporter:
       name: box open sprite-sheet_19
       rect:
         serializedVersion: 2
-        x: 5726
-        y: 5
-        width: 326
-        height: 300
+        x: 9709
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -742,12 +742,12 @@ TextureImporter:
       name: box open sprite-sheet_20
       rect:
         serializedVersion: 2
-        x: 6232
-        y: 5
-        width: 336
-        height: 290
+        x: 10220
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -764,12 +764,12 @@ TextureImporter:
       name: box open sprite-sheet_21
       rect:
         serializedVersion: 2
-        x: 6736
-        y: 5
-        width: 350
-        height: 278
+        x: 10731
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -786,12 +786,12 @@ TextureImporter:
       name: box open sprite-sheet_22
       rect:
         serializedVersion: 2
-        x: 7240
-        y: 5
-        width: 364
-        height: 266
+        x: 11242
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -808,12 +808,12 @@ TextureImporter:
       name: box open sprite-sheet_23
       rect:
         serializedVersion: 2
-        x: 7746
-        y: 5
-        width: 374
-        height: 257
+        x: 11753
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -830,12 +830,12 @@ TextureImporter:
       name: box open sprite-sheet_24
       rect:
         serializedVersion: 2
-        x: 8253
-        y: 5
-        width: 382
-        height: 250
+        x: 12264
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -852,12 +852,12 @@ TextureImporter:
       name: box open sprite-sheet_25
       rect:
         serializedVersion: 2
-        x: 8762
-        y: 5
-        width: 386
-        height: 246
+        x: 12775
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -874,12 +874,12 @@ TextureImporter:
       name: box open sprite-sheet_26
       rect:
         serializedVersion: 2
-        x: 9272
-        y: 5
-        width: 388
-        height: 244
+        x: 13286
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -896,12 +896,12 @@ TextureImporter:
       name: box open sprite-sheet_27
       rect:
         serializedVersion: 2
-        x: 9782
-        y: 5
-        width: 390
-        height: 243
+        x: 13797
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -918,12 +918,12 @@ TextureImporter:
       name: box open sprite-sheet_28
       rect:
         serializedVersion: 2
-        x: 10299
-        y: 42
-        width: 378
-        height: 253
+        x: 14308
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -940,12 +940,12 @@ TextureImporter:
       name: box open sprite-sheet_29
       rect:
         serializedVersion: 2
-        x: 10820
-        y: 69
-        width: 358
-        height: 298
+        x: 14819
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -962,12 +962,12 @@ TextureImporter:
       name: box open sprite-sheet_30
       rect:
         serializedVersion: 2
-        x: 11339
-        y: 90
-        width: 340
-        height: 347
+        x: 15330
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -984,12 +984,12 @@ TextureImporter:
       name: box open sprite-sheet_31
       rect:
         serializedVersion: 2
-        x: 11858
-        y: 107
-        width: 328
-        height: 379
+        x: 15841
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1006,12 +1006,12 @@ TextureImporter:
       name: box open sprite-sheet_32
       rect:
         serializedVersion: 2
-        x: 12363
-        y: 119
-        width: 370
-        height: 411
+        x: 16352
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1028,12 +1028,12 @@ TextureImporter:
       name: box open sprite-sheet_33
       rect:
         serializedVersion: 2
-        x: 12864
-        y: 129
-        width: 383
-        height: 403
+        x: 16863
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1050,12 +1050,12 @@ TextureImporter:
       name: box open sprite-sheet_34
       rect:
         serializedVersion: 2
-        x: 13365
-        y: 137
-        width: 398
-        height: 395
+        x: 17374
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1072,12 +1072,12 @@ TextureImporter:
       name: box open sprite-sheet_35
       rect:
         serializedVersion: 2
-        x: 13865
-        y: 142
-        width: 415
-        height: 389
+        x: 17885
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1094,12 +1094,12 @@ TextureImporter:
       name: box open sprite-sheet_36
       rect:
         serializedVersion: 2
-        x: 14367
-        y: 144
-        width: 418
-        height: 358
+        x: 18396
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1116,12 +1116,12 @@ TextureImporter:
       name: box open sprite-sheet_37
       rect:
         serializedVersion: 2
-        x: 14869
-        y: 145
-        width: 423
-        height: 334
+        x: 18907
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1138,12 +1138,12 @@ TextureImporter:
       name: box open sprite-sheet_38
       rect:
         serializedVersion: 2
-        x: 15380
-        y: 132
-        width: 423
-        height: 334
+        x: 19418
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1160,12 +1160,12 @@ TextureImporter:
       name: box open sprite-sheet_39
       rect:
         serializedVersion: 2
-        x: 15891
-        y: 111
-        width: 423
-        height: 334
+        x: 19929
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1182,12 +1182,12 @@ TextureImporter:
       name: box open sprite-sheet_40
       rect:
         serializedVersion: 2
-        x: 16402
-        y: 87
-        width: 423
-        height: 334
+        x: 20440
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1204,12 +1204,12 @@ TextureImporter:
       name: box open sprite-sheet_41
       rect:
         serializedVersion: 2
-        x: 16913
-        y: 63
-        width: 423
-        height: 334
+        x: 20951
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1226,12 +1226,12 @@ TextureImporter:
       name: box open sprite-sheet_42
       rect:
         serializedVersion: 2
-        x: 17424
-        y: 40
-        width: 423
-        height: 334
+        x: 21462
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1248,12 +1248,12 @@ TextureImporter:
       name: box open sprite-sheet_43
       rect:
         serializedVersion: 2
-        x: 17924
-        y: 19
-        width: 444
-        height: 320
+        x: 21973
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1270,12 +1270,12 @@ TextureImporter:
       name: box open sprite-sheet_44
       rect:
         serializedVersion: 2
-        x: 18420
-        y: 5
-        width: 474
-        height: 303
+        x: 22484
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1292,12 +1292,12 @@ TextureImporter:
       name: box open sprite-sheet_45
       rect:
         serializedVersion: 2
-        x: 18918
+        x: 22995
         y: 0
-        width: 499
-        height: 287
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1314,12 +1314,12 @@ TextureImporter:
       name: box open sprite-sheet_46
       rect:
         serializedVersion: 2
-        x: 19423
-        y: 3
-        width: 507
-        height: 280
+        x: 23506
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1336,12 +1336,12 @@ TextureImporter:
       name: box open sprite-sheet_47
       rect:
         serializedVersion: 2
-        x: 19936
-        y: 8
-        width: 505
-        height: 284
+        x: 24017
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1358,12 +1358,12 @@ TextureImporter:
       name: box open sprite-sheet_48
       rect:
         serializedVersion: 2
-        x: 20450
-        y: 14
-        width: 501
-        height: 286
+        x: 24528
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1380,12 +1380,12 @@ TextureImporter:
       name: box open sprite-sheet_49
       rect:
         serializedVersion: 2
-        x: 20963
-        y: 17
-        width: 496
-        height: 290
+        x: 25039
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1402,12 +1402,12 @@ TextureImporter:
       name: box open sprite-sheet_50
       rect:
         serializedVersion: 2
-        x: 21476
-        y: 14
-        width: 492
-        height: 292
+        x: 25550
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1424,12 +1424,12 @@ TextureImporter:
       name: box open sprite-sheet_51
       rect:
         serializedVersion: 2
-        x: 21989
-        y: 10
-        width: 488
-        height: 295
+        x: 26061
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1446,12 +1446,12 @@ TextureImporter:
       name: box open sprite-sheet_52
       rect:
         serializedVersion: 2
-        x: 22502
-        y: 7
-        width: 485
-        height: 297
+        x: 26572
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1468,12 +1468,12 @@ TextureImporter:
       name: box open sprite-sheet_53
       rect:
         serializedVersion: 2
-        x: 23014
-        y: 5
-        width: 483
-        height: 517
+        x: 27083
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1490,12 +1490,12 @@ TextureImporter:
       name: box open sprite-sheet_54
       rect:
         serializedVersion: 2
-        x: 23526
-        y: 6
-        width: 481
-        height: 461
+        x: 27594
+        y: 0
+        width: 511
+        height: 671
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1508,187 +1508,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_55
-      rect:
-        serializedVersion: 2
-        x: 24037
-        y: 8
-        width: 481
-        height: 413
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b6e3371716b5c99a0800000000000000
-      internalID: -6225000110859534741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_56
-      rect:
-        serializedVersion: 2
-        x: 24661
-        y: 115
-        width: 262
-        height: 267
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed35aa6825f731d90800000000000000
-      internalID: -7128213792774007842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_57
-      rect:
-        serializedVersion: 2
-        x: 25169
-        y: 80
-        width: 267
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7a5fc5241081e29a0800000000000000
-      internalID: -6256036438683617881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_58
-      rect:
-        serializedVersion: 2
-        x: 25678
-        y: 52
-        width: 271
-        height: 274
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8681516c6f8c8c9f0800000000000000
-      internalID: -447887200712583064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_59
-      rect:
-        serializedVersion: 2
-        x: 26187
-        y: 30
-        width: 274
-        height: 276
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 253e7a0ade5f5b700800000000000000
-      internalID: 555620530001535826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_60
-      rect:
-        serializedVersion: 2
-        x: 26697
-        y: 14
-        width: 276
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6fb24b93d813eaa50800000000000000
-      internalID: 6534214591989427190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_61
-      rect:
-        serializedVersion: 2
-        x: 27207
-        y: 3
-        width: 278
-        height: 278
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a7d9829f1b999eff0800000000000000
-      internalID: -6304934795895430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: box open sprite-sheet_62
-      rect:
-        serializedVersion: 2
-        x: 27717
-        y: 0
-        width: 279
-        height: 275
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5c1dc97efce52a140800000000000000
-      internalID: 4729446805729497541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0e907ecfa5cf5f55280e33482617be87
     internalID: 0
     vertices: []
     indices: 
@@ -1696,7 +1520,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":511.0,"y":671.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       box open sprite-sheet_0: -7463480157952294375
       box open sprite-sheet_1: 5480956059654131132
@@ -1749,15 +1575,7 @@ TextureImporter:
       box open sprite-sheet_52: -1868777960803074605
       box open sprite-sheet_53: -5064191166228100018
       box open sprite-sheet_54: 1740585427272000632
-      box open sprite-sheet_55: -6225000110859534741
-      box open sprite-sheet_56: -7128213792774007842
-      box open sprite-sheet_57: -6256036438683617881
-      box open sprite-sheet_58: -447887200712583064
-      box open sprite-sheet_59: 555620530001535826
       box open sprite-sheet_6: 7770611505363020144
-      box open sprite-sheet_60: 6534214591989427190
-      box open sprite-sheet_61: -6304934795895430
-      box open sprite-sheet_62: 4729446805729497541
       box open sprite-sheet_7: -6260581120525620130
       box open sprite-sheet_8: -7395009018451389205
       box open sprite-sheet_9: 1236453480635289916

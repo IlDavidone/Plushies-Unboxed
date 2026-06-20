@@ -15,7 +15,7 @@ public class CollectionButton : MonoBehaviour
 
     void Start()
     {
-        float slideDistance = containerRect.rect.width;
+        float slideDistance = containerRect.rect.width * 2;
         originalPosition = monsterIconRect.anchoredPosition;
         StartCoroutine(CycleMonsters());
     }
