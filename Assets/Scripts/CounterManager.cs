@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Mono.Cecil;
 using Unity.Mathematics;
 using UnityEngine;
@@ -13,12 +14,22 @@ public class CounterSlot
     public bool IsEmpty => displayedMonster == null;
 }
 
+[System.Serializable]
+public class CounterSlotSaveData
+{
+    public string slotId;
+    public bool hasMonster;
+    public OwnedMonster monster;
+}
+
 public class CounterManager : MonoBehaviour
 {
     public static CounterManager Instance {get; private set;}
 
     public Monsters[] allMonsterData;
     [SerializeField] private Rarity minimumRarityAllowed = Rarity.Legendary;
+    [SerializeField] private CounterButton counterView1;
+    [SerializeField] private CounterButton counterView2;
 
     private CounterSlot[] counterSlots;
     private float crowdPleaserTimer = 0f;
@@ -52,6 +63,12 @@ public class CounterManager : MonoBehaviour
             OnFreeRollTriggered?.Invoke();
             Debug.Log("[CounterManager] Crowd Pleaser triggered a free roll!");
         }
+    }
+
+    public void RefreshView()  //without this nothing will fucking work
+    {
+        counterView1.RefreshView();
+        counterView2.RefreshView();
     }
 
     public bool TryPlace(int index, OwnedMonster monster)
@@ -187,5 +204,37 @@ public class CounterManager : MonoBehaviour
         }
 
         return null;
+    }  
+
+    //save helpers
+
+    public List<CounterSlotSaveData> GetSaveSnapshot()
+    {
+        var result = new List<CounterSlotSaveData>();
+
+        foreach (var slot in counterSlots)
+        {
+            result.Add(new CounterSlotSaveData
+            {
+                slotId = slot.slotId,
+                hasMonster = !slot.IsEmpty,
+                monster = slot.displayedMonster
+            });
+        }
+
+        return result;
+    }
+
+    public void LoadFromSnapshot(List<CounterSlotSaveData> snapshot)
+    {
+        if (snapshot == null) return;
+
+        foreach (var saved in snapshot)
+        {
+            CounterSlot slot = System.Array.Find(counterSlots, s => s.slotId == saved.slotId);
+            if (slot == null) continue;
+
+            slot.displayedMonster = saved.hasMonster ? saved.monster : null;
+        }
     }
 }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         saveManager.Load();
         shelfView.RefreshView();
+        CounterManager.Instance.RefreshView();
     }
 
     // Update is called once per frame

@@ -10,6 +10,7 @@ public class SaveData
     public float idleIncomeMultiplier;
     public List<OwnedMonster> ownedMonsters = new List<OwnedMonster>();
     public List<ShelfSlotSaveData> shelfSlots = new List<ShelfSlotSaveData>();
+    public List<CounterSlotSaveData> counterSlots = new List<CounterSlotSaveData>();
     public string lastSaveTimeUTC;
 }
  
@@ -25,7 +26,8 @@ public class SaveManager : MonoBehaviour
             idleIncomeMultiplier = CurrencyManager.Instance.idleIncomeMultiplier,
             lastSaveTimeUTC = DateTime.UtcNow.ToString("o"),
             ownedMonsters = CollectionManager.Instance.GetOwnedMonstersSnapshot(),
-            shelfSlots = ShelfManager.Instance.GetSaveSnapshot()
+            shelfSlots = ShelfManager.Instance.GetSaveSnapshot(),
+            counterSlots = CounterManager.Instance.GetSaveSnapshot()
         };
  
         File.WriteAllText(SavePath, JsonUtility.ToJson(data));
@@ -54,6 +56,7 @@ public class SaveManager : MonoBehaviour
         // ShelfManager.Awake() must have already run and created fresh slots
         // before this Load() call -- it only mutates existing slots, never recreates the array.
         ShelfManager.Instance.LoadFromSnapshot(save.shelfSlots);
+        CounterManager.Instance.LoadFromSnapshot(save.counterSlots);
  
         if (DateTime.TryParse(save.lastSaveTimeUTC, null,
             System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastTime))
