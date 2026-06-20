@@ -11,6 +11,7 @@ public class SaveData
     public List<OwnedMonster> ownedMonsters = new List<OwnedMonster>();
     public List<ShelfSlotSaveData> shelfSlots = new List<ShelfSlotSaveData>();
     public List<CounterSlotSaveData> counterSlots = new List<CounterSlotSaveData>();
+    public List<string> savedAchievements = new List<string>();
     public string lastSaveTimeUTC;
 }
  
@@ -27,7 +28,8 @@ public class SaveManager : MonoBehaviour
             lastSaveTimeUTC = DateTime.UtcNow.ToString("o"),
             ownedMonsters = CollectionManager.Instance.GetOwnedMonstersSnapshot(),
             shelfSlots = ShelfManager.Instance.GetSaveSnapshot(),
-            counterSlots = CounterManager.Instance.GetSaveSnapshot()
+            counterSlots = CounterManager.Instance.GetSaveSnapshot(),
+            savedAchievements = new List<string>(AchivementManager.Instance.GetUnlockedSnapshot())
         };
  
         File.WriteAllText(SavePath, JsonUtility.ToJson(data));
@@ -57,6 +59,8 @@ public class SaveManager : MonoBehaviour
         // before this Load() call -- it only mutates existing slots, never recreates the array.
         ShelfManager.Instance.LoadFromSnapshot(save.shelfSlots);
         CounterManager.Instance.LoadFromSnapshot(save.counterSlots);
+
+        AchivementManager.Instance.LoadFromSnapshot(save.savedAchievements);
  
         if (DateTime.TryParse(save.lastSaveTimeUTC, null,
             System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastTime))

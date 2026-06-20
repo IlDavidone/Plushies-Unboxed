@@ -97,6 +97,8 @@ public class BoxesManager : MonoBehaviour
     {
         if(!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost)) return;
 
+        AchivementManager.Instance.TryUnlock("first_box");
+
         var result = gachaManager.RollMonster(monsterBoxes[currentBoxIndex]);
 
         RarityConfig config = Array.Find(rarityConfigs, r => r.rarity == result.monster.rarity);
