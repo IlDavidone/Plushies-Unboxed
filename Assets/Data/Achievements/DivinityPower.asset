@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51af1bf2eadcccaadac820d6a46842d3, type: 3}
+  m_Name: DivinityPower
+  m_EditorClassIdentifier: Assembly-CSharp::Achievement
+  achievementId: secret_unlocked
+  title: The Divinity's Power
+  description: How does it feel to embrace the power of a literal god?
+  icon: {fileID: 3204515261112718985, guid: b3e4aa3a43db4d8b991886be44ed2868, type: 3}
+  rewardCurrency: 1000

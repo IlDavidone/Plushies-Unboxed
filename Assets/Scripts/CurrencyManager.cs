@@ -6,6 +6,7 @@ public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager Instance;
     public double currency;
+    public double totalCurrencyEarned;
     public float clickPower = 1f;
     public float idleIncomeMultiplier = 1f;
 
@@ -25,7 +26,10 @@ public class CurrencyManager : MonoBehaviour
     public void AddCurrency(double amount)
     {
         currency += amount;
+        totalCurrencyEarned = currency;
         OnCurrencyChanged?.Invoke(currency);
+
+        CheckCurrencyAchievements();
     }
 
     public bool TrySpend(double amount)
@@ -40,5 +44,14 @@ public class CurrencyManager : MonoBehaviour
     {
         float income = ShelfManager.Instance.GetTotalIncome() * idleIncomeMultiplier;
         AddCurrency(income * Time.deltaTime);
+    }
+
+    private void CheckCurrencyAchievements()
+    {
+        if (totalCurrencyEarned >= 100) AchivementManager.Instance.TryUnlock("100_currency");
+        if (totalCurrencyEarned >= 1000) AchivementManager.Instance.TryUnlock("1000_currency");
+        if (totalCurrencyEarned >= 10000) AchivementManager.Instance.TryUnlock("10000_currency");
+        if (totalCurrencyEarned >= 100000) AchivementManager.Instance.TryUnlock("100000_currency");
+        if (totalCurrencyEarned >= 1000000) AchivementManager.Instance.TryUnlock("1000000_currency");
     }
 }

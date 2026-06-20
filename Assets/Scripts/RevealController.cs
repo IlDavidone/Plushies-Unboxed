@@ -27,6 +27,15 @@ public class RevealController : MonoBehaviour
         currentMonster = monsterData;
         isCurrentMonsterShiny = isShiny;
 
+        if(currentMonster.rarity == Rarity.Legendary)
+            AchivementManager.Instance.TryUnlock("legendary_unlocked");
+
+        if(currentMonster.rarity == Rarity.Secret)
+            AchivementManager.Instance.TryUnlock("secret_unlocked");
+
+        if(currentMonster.monsterName == "Paraguise")
+            AchivementManager.Instance.TryUnlock("phantom_thief");
+
         newMonsterInstance = new OwnedMonster
         {
             instanceId = Guid.NewGuid().ToString(),
@@ -73,6 +82,11 @@ public class RevealController : MonoBehaviour
     {
         CollectionManager.Instance.AddMonsterInstance(newMonsterInstance);
 
+        AchivementManager.Instance.TryUnlock("first_keep");
+        
+        if(CollectionManager.Instance.GetTotalMonsterCount() >= 10)
+            AchivementManager.Instance.TryUnlock("tenth_keep");
+
         bool placed = ShelfManager.Instance.TryPlace(newMonsterInstance);
         if (placed)
             shelfView.RefreshView();
@@ -85,6 +99,9 @@ public class RevealController : MonoBehaviour
     private void OnSell(double amount)
     {
         CurrencyManager.Instance.AddCurrency(amount);
+
+        AchivementManager.Instance.TryUnlock("monster_sell");
+
         revealPanel.SetActive(false);
     }
 }

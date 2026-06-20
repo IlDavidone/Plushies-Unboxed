@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
@@ -15,13 +16,17 @@ public class BoxesManager : MonoBehaviour
     [SerializeField] private GachaManager gachaManager;
 
     [SerializeField] private TMP_Text boxNameText;  
+    [SerializeField] private RectTransform boxImageRect;
     [SerializeField] private Image boxImage;
     [SerializeField] private Button boxButton;
     [SerializeField] private RevealController revealController;
     [SerializeField] private Button leftArrowButton;
     [SerializeField] private Button rightArrowButton;
+    [SerializeField] private float slideDuration = 0.5f;
 
     private int currentBoxIndex = 0;
+    private Vector2 originalPosition;
+    private bool isTransitioning = false;
 
     void Awake()
     {
@@ -43,44 +48,60 @@ public class BoxesManager : MonoBehaviour
         rightArrowButton.onClick.AddListener(CycleNext);
         boxButton.onClick.AddListener(OpenBox);
 
-        UpdateUI();
+        originalPosition = boxImageRect.anchoredPosition;
+
+        UpdateUI(instant: true);
     }
     
     private void CycleNext()
     {
-        if(monsterBoxes.Count == 0)
-        {
-            return;
-        }
-
-        currentBoxIndex++;
-
-        if(currentBoxIndex >= monsterBoxes.Count)
-        {
-            currentBoxIndex = 0;
-        }
-
-        UpdateUI();
+        if (isTransitioning) return;
+        currentBoxIndex = (currentBoxIndex + 1) % monsterBoxes.Count;
+        StartCoroutine(SlideSwap(direction: -1));
     }
 
     private void CyclePrevious()
     {
-        if(monsterBoxes.Count == 0)
-        {
-            return;
-        }
-
-        currentBoxIndex--;
-
-        if(currentBoxIndex < 0)
-        {
-            currentBoxIndex = monsterBoxes.Count - 1;
-        }
-
-        UpdateUI();
+        if (isTransitioning) return;
+        currentBoxIndex = (currentBoxIndex - 1 + monsterBoxes.Count) % monsterBoxes.Count;
+        StartCoroutine(SlideSwap(direction: 1));
     }
 
-    private void UpdateUI()
+    private IEnumerator SlideSwap(int direction)
+    {
+        isTransitioning = true;
+
+        float slideDistance = boxImageRect.rect.width;
+        Vector2 outTarget = originalPosition + Vector2.right * direction * slideDistance;
+        Vector2 inStart = originalPosition - Vector2.right * direction * slideDistance;
+
+        yield return SlideTo(boxImageRect, outTarget, slideDuration);
+
+        UpdateUI(instant: true);
+        boxImageRect.anchoredPosition = inStart;
+
+        yield return SlideTo(boxImageRect, originalPosition, slideDuration);
+
+        isTransitioning = false;
+    }
+
+    private IEnumerator SlideTo(RectTransform rect, Vector2 target, float duration)
+    {
+        Vector2 start = rect.anchoredPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, elapsed / duration);
+            rect.anchoredPosition = Vector2.Lerp(start, target, t);
+            yield return null;
+        }
+
+        rect.anchoredPosition = target;
+    }
+
+    private void UpdateUI(bool instant)
     {
         if(monsterBoxes.Count == 0)
         {

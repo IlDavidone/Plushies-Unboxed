@@ -7,6 +7,7 @@ using UnityEngine;
 public class SaveData
 {
     public double currency;
+    public double totalCurrencyEarned;
     public float idleIncomeMultiplier;
     public List<OwnedMonster> ownedMonsters = new List<OwnedMonster>();
     public List<ShelfSlotSaveData> shelfSlots = new List<ShelfSlotSaveData>();
@@ -24,6 +25,7 @@ public class SaveManager : MonoBehaviour
         var data = new SaveData
         {
             currency = CurrencyManager.Instance.currency,
+            totalCurrencyEarned = CurrencyManager.Instance.totalCurrencyEarned,
             idleIncomeMultiplier = CurrencyManager.Instance.idleIncomeMultiplier,
             lastSaveTimeUTC = DateTime.UtcNow.ToString("o"),
             ownedMonsters = CollectionManager.Instance.GetOwnedMonstersSnapshot(),
@@ -51,6 +53,7 @@ public class SaveManager : MonoBehaviour
         }
  
         CurrencyManager.Instance.currency = save.currency;
+        CurrencyManager.Instance.totalCurrencyEarned = save.totalCurrencyEarned;
         CurrencyManager.Instance.idleIncomeMultiplier = save.idleIncomeMultiplier;
  
         CollectionManager.Instance.LoadFromSnapshot(new List<OwnedMonster>(save.ownedMonsters));

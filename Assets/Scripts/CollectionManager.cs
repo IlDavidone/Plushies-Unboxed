@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CollectionManager : MonoBehaviour
@@ -25,12 +26,38 @@ public class CollectionManager : MonoBehaviour
     public void AddMonsterInstance(OwnedMonster monster)
     {
         ownedMonsters.Add(monster);
+
+        CheckCompletionAchievement();
+
         OnMonsterAdded?.Invoke(monster);
     }
 
     public int GetMonsterCount(string monsterName)
     {
         return ownedMonsters.FindAll(m => m.monsterName == monsterName).Count;
+    }
+
+    public int GetTotalMonsterCount()
+    {
+        return ownedMonsters.Count;
+    }
+
+    private void CheckCompletionAchievement() //doesn't account for secret rarity
+    {
+        int distinctOwnedSpecies = ownedMonsters
+            .Select(m => m.monsterName)
+            .Distinct()
+            .Count();
+
+        int totalNonMythicSpecies = allMonsterData.Count(m => m.rarity != Rarity.Secret);
+
+        int ownedNonMythicSpecies = ownedMonsters
+            .Select(m => m.monsterName)
+            .Distinct()
+            .Count(name => allMonsterData.Find(m => m.monsterName == name)?.rarity != Rarity.Secret);
+
+        if (ownedNonMythicSpecies >= totalNonMythicSpecies)
+            AchivementManager.Instance.TryUnlock("all_discovered");
     }
 
     public List<OwnedMonster> GetOwnedMonstersSnapshot() => new List<OwnedMonster>(ownedMonsters);

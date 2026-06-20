@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51af1bf2eadcccaadac820d6a46842d3, type: 3}
+  m_Name: Hustler
+  m_EditorClassIdentifier: Assembly-CSharp::Achievement
+  achievementId: 1000_currency
+  title: Hustler
+  description: You're starting to make some serious money, now time to pay taxes...
+    JK. But seriously, feed your monsters.
+  icon: {fileID: -5331089552188255770, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
+  rewardCurrency: 100

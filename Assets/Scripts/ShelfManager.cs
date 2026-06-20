@@ -55,6 +55,9 @@ public class ShelfManager : MonoBehaviour
             {
                 slots[i].displayedMonster = monster;
                 Debug.Log($"[ShelfManager] Placed {monster.monsterName} in {slots[i].slotId}");
+
+                AchivementManager.Instance.TryUnlock("shelf_equip");
+
                 return true;
             }
         }

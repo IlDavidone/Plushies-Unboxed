@@ -91,6 +91,9 @@ public class CounterManager : MonoBehaviour
 
         counterSlots[index].displayedMonster = monster;
         Debug.Log($"[CounterManager] Placed {monster.monsterName} in {counterSlots[index].slotId}");
+
+        AchivementManager.Instance.TryUnlock("counter_equip");
+
         return true;
     }
 
