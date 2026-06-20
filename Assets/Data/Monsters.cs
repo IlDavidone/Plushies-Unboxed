@@ -36,10 +36,11 @@ public enum Rarity
 public enum AbiltyID
 {
     None,          //case for all common, rare aand epic monsters
-    GoldenPaw,     //+50% shelves income
+    GoldenPaw,     //+25% shelves income
     LuckyCoin,     //+5% global shiny chance
     BargainMaster, //-20% box cost
     SpeedyPity,    //-5 pity threshold
     DoubleStuffed, //double own income
     CrowdPleaser,  //+1 box roll every 60s
+    TavernAmbience //x2 global multiplier
 }

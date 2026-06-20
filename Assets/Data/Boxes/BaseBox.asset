@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBoxes
   boxName: Base Box
   boxIcon: {fileID: 0}
-  cost: 100
+  cost: 10
   monstersPool:
-  - {fileID: 11400000, guid: dfbfbecf001c74aba89561b95fee60b6, type: 2}
-  - {fileID: 11400000, guid: 40e54c013d69b7a95b1b704e8cb66d1c, type: 2}
+  - {fileID: 11400000, guid: 3d0ff115c75a34ad4ae9de39f0cd550f, type: 2}
+  - {fileID: 11400000, guid: cae968220e4b20b25a10fc72f829d1b5, type: 2}
+  pityThreshold: 10
+  guaranteedPityRarity: 1
+  exclusiveMonsterPity: 100
+  exclusiveMonster: {fileID: 11400000, guid: ea7558ecc64177b55b9edde750cf0712, type: 2}

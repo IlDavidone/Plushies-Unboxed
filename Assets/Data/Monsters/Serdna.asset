@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Serdna
   baseIcon: {fileID: 6455886584170928189, guid: af9300c88f2427983bc580115fd68ee2, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 1371044348198849082, guid: f8180dd3814d5cdf29739cd3d7d07059, type: 3}
   flavorText: "82% di spazio di archiviazione usato\nPuoi liberare spazio o acquistare
     altro spazio di archiviazione per Drive, Gmail e Google Foto. Ottieni altro spazio
     di archiviazione con uno sconto del \u2014 75% per 3 mesi. Prezzo personalizzato.\nPlushies

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Owl Wizard
   baseIcon: {fileID: -8333950249540938994, guid: d823f9a4687c5ec8fbb5d2d4e4c889bc, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 5002345288123197451, guid: 0390c4058f6d9e8218c63ec3bf51560d, type: 3}
   flavorText: He thinks he's a wizard, but is he tho? Hooooooot knows?
   rarity: 0
   rollWeight: 60

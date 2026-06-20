@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: "Gamushi M\xF6th"
   baseIcon: {fileID: -389730770047268387, guid: 9aec7921086230704a0283d5cce64fd8, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 2179621409140113408, guid: 7a677e96fafbf7377a3f6c1fb36919f9, type: 3}
   flavorText: 'A long fluffy creature of the night, it preys on bad dreams.
 
 '

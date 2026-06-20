@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Paraguise
   baseIcon: {fileID: 6069393626007769617, guid: ae4c0287f95eb5ad88dac8dfbc4b972f, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: -5656163395354214123, guid: e438050eaa7d86682802cc1ad033ef95, type: 3}
   flavorText: '"You''ll never see it coming!"
 
 '
@@ -23,5 +23,5 @@ MonoBehaviour:
   baseIncome: 12
   sellValue: 750
   shinySellValueMultiplier: 3
-  uniquePowerId: 0
+  uniquePowerId: 4
   uniquePowerDescription: 

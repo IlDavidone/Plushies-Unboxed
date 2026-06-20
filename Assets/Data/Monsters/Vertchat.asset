@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Vertchat
   baseIcon: {fileID: 3841290324716842973, guid: 93388a775eda88a64a98745c6ff17a55, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: -1065156924203660064, guid: d0ace9b134a7666488b1b8164d0f1c7e, type: 3}
   flavorText: 'After drinking too much FountainMew, it is now a green muppet.
 
 '

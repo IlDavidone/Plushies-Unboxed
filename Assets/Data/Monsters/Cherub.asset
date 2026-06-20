@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Cherub
   baseIcon: {fileID: -7484656994866864400, guid: 16afbb3f30a911e5bb94a936a0bab1d5, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: -802695864093451067, guid: 7697cd3ecd886e9ba91076c7132c7347, type: 3}
   flavorText: 'Blessed with gorgeous hair, he is the goddess''s favourite angel.
 
 '
@@ -23,5 +23,5 @@ MonoBehaviour:
   baseIncome: 10
   sellValue: 600
   shinySellValueMultiplier: 3
-  uniquePowerId: 0
+  uniquePowerId: 2
   uniquePowerDescription: 

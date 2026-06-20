@@ -15,7 +15,7 @@ public class MonsterCell : MonoBehaviour, IPointerClickHandler
         monsterData = monster;
         uniqueMonsterInstance = monsterInstance; 
         detailPanel = detail;
-        icon.sprite = monster.baseIcon;
+        icon.sprite = monsterInstance.isShiny ? monster.shinyIcon : monster.baseIcon;
     }  
 
     public void OnPointerClick(PointerEventData eventData)

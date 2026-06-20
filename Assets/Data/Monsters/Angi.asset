@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Angi
   baseIcon: {fileID: 6223316047101794331, guid: e2963a511efbdd38594d5e763cccdb30, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 316928628731958613, guid: dab938acc770be71aa8ecb7aeb85ceb8, type: 3}
   flavorText: 'This fungi packs a punch and seeks out Button''imps to fight
 
 '

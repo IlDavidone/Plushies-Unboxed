@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Dinohero
   baseIcon: {fileID: -2560789745326607486, guid: a3a3f5170977c43a3932c2217a99fe29, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 7019440090888625655, guid: 19a902471ac5d09fb89f22db4128ec77, type: 3}
   flavorText: 'It dreams to be a super hero instead of being a stereotypical monster.
 
 '

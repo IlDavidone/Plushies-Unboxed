@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Kopi Kuching
   baseIcon: {fileID: 3394113221357313813, guid: 36c2d0c7048af4bd593dbe9f80d7c619, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: -8554423672340859861, guid: fc4fe27d5c9413a7798f95ddb2e4c72f, type: 3}
   flavorText: "World class barista, 50% coffee, 30% cat and 20% whimsy (Caution it
     is not, in fact, edible) \n"
   rarity: 2

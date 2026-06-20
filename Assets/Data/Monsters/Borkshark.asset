@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Borkshark
   baseIcon: {fileID: -256122467911754545, guid: 38f395d0e7ba51365bc9b1a21669d27c, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: -5361819309070557039, guid: d94e46d5aa8dbf217ab924259b0128bb, type: 3}
   flavorText: "\u201CI bite, gib snek\u201D He can swim but usually just walks underwater.\n"
   rarity: 2
   rollWeight: 6

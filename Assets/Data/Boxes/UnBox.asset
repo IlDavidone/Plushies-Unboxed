@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UnBox
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBoxes
   boxName: UnBox
-  boxIcon: {fileID: 0}
+  boxIcon: {fileID: -7395009018451389205, guid: 5510e2032f6761840afd76587eaa45d4, type: 3}
   cost: 1000
   monstersPool:
   - {fileID: 11400000, guid: 3d0ff115c75a34ad4ae9de39f0cd550f, type: 2}
@@ -33,5 +33,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a5650dd0ac0df3e4d929c5598d76d71e, type: 2}
   pityThreshold: 20
   guaranteedPityRarity: 2
-  exclusiveMonsterPity: 2
+  exclusiveMonsterPity: 100
   exclusiveMonster: {fileID: 11400000, guid: 55053119587bdcd05944f9779fef7a29, type: 2}

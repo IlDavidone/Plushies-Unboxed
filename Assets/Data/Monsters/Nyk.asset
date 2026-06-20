@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: 'Nyk '
   baseIcon: {fileID: 3868264725213549148, guid: 275371488108cb221ac886589b52e177, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 6177979772295776358, guid: 724545259c04bd2a5898450b2748940a, type: 3}
   flavorText: 'Don''t let his innocent looks fool you, he spies for secret organisations.
     (He''s dating Owl Wizard)
 
@@ -24,5 +24,5 @@ MonoBehaviour:
   baseIncome: 9
   sellValue: 550
   shinySellValueMultiplier: 3
-  uniquePowerId: 0
+  uniquePowerId: 3
   uniquePowerDescription: 

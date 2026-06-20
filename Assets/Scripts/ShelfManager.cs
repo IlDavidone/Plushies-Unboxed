@@ -43,6 +43,12 @@ public class ShelfManager : MonoBehaviour
  
     public bool TryPlace(OwnedMonster monster)
     {
+        if (EquipmentChecker.IsEquippedAnywhere(monster.instanceId))
+        {
+            Debug.Log($"[ShelfManager] {monster.monsterName} is already equipped elsewhere.");
+            return false;
+        }
+
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].IsEmpty)
@@ -111,9 +117,9 @@ public class ShelfManager : MonoBehaviour
             float income = (float)data.baseIncome;
             if (slot.displayedMonster.isShiny) income *= (float)data.shinySellValueMultiplier;
  
-            total += income * slot.slotMultiplier;
+            total += (income * slot.slotMultiplier) * CounterManager.Instance.GetShelfIncomeMultiplier();
         }
- 
+        Debug.Log($"Total Shelves Income: {total}");
         return total;
     }
 
@@ -162,14 +168,22 @@ public class ShelfManager : MonoBehaviour
     }
 
     public bool IsInstanceEquipped(string instanceId)
-{
-    foreach (var slot in slots)
     {
-        if (!slot.IsEmpty && slot.displayedMonster.instanceId == instanceId)
-            return true;
+        foreach (var slot in slots)
+        {
+            if (!slot.IsEmpty && slot.displayedMonster.instanceId == instanceId)
+                return true;
+        }
+        return false;
     }
-    return false;
-}
+
+    public bool IsInstanceOnShelf(string instanceId)
+    {
+        foreach (var slot in slots)
+            if (!slot.IsEmpty && slot.displayedMonster.instanceId == instanceId)
+                return true;
+        return false;
+    }
 
  
     public List<ShelfSlotSaveData> GetSaveSnapshot()

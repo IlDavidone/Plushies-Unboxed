@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Button'imp
   baseIcon: {fileID: -6764278559788484247, guid: 02c0c430c691ccdc49ec0cb3359c5f09, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: -6842255148047110287, guid: 85b48b1cd45ea4d00aad19b43bc0d30e, type: 3}
   flavorText: 'Likes stealing buttons off people''s clothes, keeps up to 420,000
     per horde.
 

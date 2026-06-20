@@ -1,7 +1,15 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+public static class EquipmentChecker
+{
+    public static bool IsEquippedAnywhere(string instanceId)
+    {
+        return ShelfManager.Instance.IsInstanceOnShelf(instanceId)
+            || CounterManager.Instance.IsInstanceOnCounter(instanceId);
+    }
+}
 
 public class MonsterDetailPanel : MonoBehaviour
 {
@@ -17,19 +25,24 @@ public class MonsterDetailPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI perk1;
     [SerializeField] private TextMeshProUGUI perk2;
     [SerializeField] private TextMeshProUGUI uniquePowerText;
+    [SerializeField] private Button equipCounterButton;
     [SerializeField] private Button equipButton;
     [SerializeField] private TextMeshProUGUI equipButtonLabel;
+    [SerializeField] private TextMeshProUGUI equipCounterButtonLabel;
     [SerializeField] private Button closeButton;
-    [Space]
 
+    [Space]
     public ShelfView shelfView;
+    public CounterButton counterButton1;
+    public CounterButton counterButton2;
 
     private OwnedMonster currentInstance;
+    private Monsters currentMonsterData;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         panelRoot.SetActive(false);
+        equipCounterButton.onClick.AddListener(OnEquipToCounterPressed);
         equipButton.onClick.AddListener(OnEquipPressed);
         closeButton.onClick.AddListener(Close);
     }
@@ -37,8 +50,9 @@ public class MonsterDetailPanel : MonoBehaviour
     public void ShowDetails(OwnedMonster monsterInstance, Monsters monster)
     {
         currentInstance = monsterInstance;
+        currentMonsterData = monster;
 
-        monsterIcon.sprite = monster.baseIcon;
+        monsterIcon.sprite = monsterInstance.isShiny ? monster.shinyIcon : monster.baseIcon;
         nameText.text = monster.monsterName;
         rarityText.text = monster.rarity.ToString();
         flavorText.text = monster.flavorText;
@@ -51,28 +65,55 @@ public class MonsterDetailPanel : MonoBehaviour
         perk2.text = "Perk 2: " + monsterInstance.perk2;
         monsterId.text = monsterInstance.instanceId;
 
-        bool isEquipped = ShelfManager.Instance.IsInstanceEquipped(monsterInstance.instanceId);
-        equipButton.interactable = !isEquipped;
-        equipButtonLabel.text = isEquipped ? "Equipped" : "Equip";
+        RefreshEquipButtons();
 
         panelRoot.SetActive(true);
         collectionTab.SetActive(false);
     }
 
+    private void RefreshEquipButtons()
+    {
+        bool equippedAnywhere = EquipmentChecker.IsEquippedAnywhere(currentInstance.instanceId);
+
+        // Shelf button: disabled if equipped anywhere
+        equipButton.interactable = !equippedAnywhere;
+        equipButtonLabel.text = equippedAnywhere ? "Equipped" : "Equip";
+
+        // Counter button: disabled if equipped anywhere, OR if rarity too low for counter
+        bool meetsRarity = currentMonsterData.rarity >= Rarity.Legendary; // match CounterManager's minimumRarityAllowed
+        equipCounterButton.interactable = !equippedAnywhere && meetsRarity;
+        equipCounterButtonLabel.text = equippedAnywhere ? "Equipped" : (meetsRarity ? "Equip to Counter" : "Too Common");
+    }
+
     public void OnEquipPressed()
     {
         bool placed = ShelfManager.Instance.TryPlace(currentInstance);
-        if (placed)
-        {
-            equipButton.interactable = false;
-            equipButtonLabel.text = "Equipped";
-        }
-        else
-        {
-            Debug.Log("Shelf full, cannot equip.");
-        }
+        if (!placed)
+            Debug.Log("Shelf full or already equipped, cannot equip.");
 
         shelfView.RefreshView();
+        RefreshEquipButtons();
+    }
+
+    public void OnEquipToCounterPressed()
+    {
+        CounterSlot slot = CounterManager.Instance.GetFirstFreeSlot();
+        if (slot == null)
+        {
+            Debug.Log("Cannot place on counter — slots full.");
+            return;
+        }
+
+        int slotIndex = CounterManager.Instance.GetIndexFromId(slot);
+        if (slotIndex == -1) return;
+
+        bool placed = CounterManager.Instance.TryPlace(slotIndex, currentInstance);
+        if (!placed)
+            Debug.Log("Cannot place on counter — already equipped or rarity too low.");
+
+        counterButton1.RefreshView();
+        counterButton2.RefreshView();
+        RefreshEquipButtons();
     }
 
     void Close()

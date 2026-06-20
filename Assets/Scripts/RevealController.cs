@@ -7,13 +7,15 @@ public class RevealController : MonoBehaviour
 {
     [SerializeField] private GameObject revealPanel;
     [SerializeField] private ShelfView shelfView;
-    [SerializeField] private TextMeshProUGUI nameText, rarityText, sellValueText;
+    [SerializeField] private TextMeshProUGUI nameText, rarityText, sellValueText, perkText1, perkText2;
     [SerializeField] private Image monsterIcon;
     [SerializeField] private Button keepButton, sellButton;
     [SerializeField] private GameObject shinyVFX;
  
     private Monsters currentMonster;
+    private OwnedMonster newMonsterInstance;
     private bool isCurrentMonsterShiny;
+
  
     void Awake()
     {
@@ -24,6 +26,15 @@ public class RevealController : MonoBehaviour
     {
         currentMonster = monsterData;
         isCurrentMonsterShiny = isShiny;
+
+        newMonsterInstance = new OwnedMonster
+        {
+            instanceId = Guid.NewGuid().ToString(),
+            monsterName = currentMonster.monsterName,
+            isShiny = isCurrentMonsterShiny,
+            perk1 = RollRandomPerk(),
+            perk2 = RollRandomPerk()
+        };
  
         monsterIcon.sprite = (isCurrentMonsterShiny && currentMonster.shinyIcon != null)
             ? currentMonster.shinyIcon
@@ -38,6 +49,9 @@ public class RevealController : MonoBehaviour
             ? currentMonster.sellValue * currentMonster.shinySellValueMultiplier
             : currentMonster.sellValue;
         sellValueText.text = $"Sell: ${sellPrice:F0}";
+
+        perkText1.text = $"Perk 1: {newMonsterInstance.perk1}";
+        perkText2.text = $"Perk 2: {newMonsterInstance.perk2}";
  
         if (shinyVFX != null) shinyVFX.SetActive(isCurrentMonsterShiny);
  
@@ -57,18 +71,9 @@ public class RevealController : MonoBehaviour
  
     private void OnKeep()
     {
-        OwnedMonster newMonster = new OwnedMonster
-        {
-            instanceId = Guid.NewGuid().ToString(),
-            monsterName = currentMonster.monsterName,
-            isShiny = isCurrentMonsterShiny,
-            perk1 = RollRandomPerk(),
-            perk2 = RollRandomPerk()
-        };
+        CollectionManager.Instance.AddMonsterInstance(newMonsterInstance);
 
-        CollectionManager.Instance.AddMonsterInstance(newMonster);
-
-        bool placed = ShelfManager.Instance.TryPlace(newMonster);
+        bool placed = ShelfManager.Instance.TryPlace(newMonsterInstance);
         if (placed)
             shelfView.RefreshView();
         else

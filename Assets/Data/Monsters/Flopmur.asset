@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monsters
   monsterName: Flopmur
   baseIcon: {fileID: 3534985144550079384, guid: a2fe9ea101be9dad3af7e99a6d9e2574, type: 3}
-  shinyIcon: {fileID: 0}
+  shinyIcon: {fileID: 2643198614132257582, guid: e6a6a470276d1349e99877e36627aad3, type: 3}
   flavorText: 'Super shy, loves to sing when she is alone.
 
 '
