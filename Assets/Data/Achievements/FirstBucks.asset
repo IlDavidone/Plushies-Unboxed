@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: 100_currency
   title: First Bucks
-  description: Hard earned money for an hard worker, take a break.
+  objective: Earn 100 Coins
+  description: Hard earned money for a hard worker, take a break.
   icon: {fileID: 8790086971081183686, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
   rewardCurrency: 50

@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Mono.Cecil;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
 
 [Serializable]
 public class CounterSlot

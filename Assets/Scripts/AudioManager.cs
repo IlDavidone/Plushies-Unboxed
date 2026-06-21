@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager Instance;
+    public static AudioManager Instance;
 
     [Header("Audio Source")]
     [SerializeField] private AudioSource audioSource;
@@ -34,6 +34,18 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartBackgroundOst());
+    }
+
+    public void PlayBoxRipSFX()
+    {
+        audioSource.PlayOneShot(boxRipSFX);
+    }
+
+    public void PlayRandomSqueakySound()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, squeakySFX.Length);
+
+        audioSource.PlayOneShot(squeakySFX[randomIndex]);
     }
 
     private IEnumerator StartBackgroundOst()

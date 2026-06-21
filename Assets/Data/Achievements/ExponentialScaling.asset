@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: counter_equip
   title: Exponential Scaling
+  objective: Equip a Legendary or better monster on a counter slot
   description: Who doesn't like big numbers like these?
   icon: {fileID: -8333950249540938994, guid: d823f9a4687c5ec8fbb5d2d4e4c889bc, type: 3}
   rewardCurrency: 300

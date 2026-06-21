@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BaseBox
   m_EditorClassIdentifier: Assembly-CSharp::MonsterBoxes
   boxName: Base Box
-  boxIcon: {fileID: 0}
+  boxIcon: {fileID: -3346265146876931106, guid: c8fb05052cc6aae6fa2bb1e060dfbdef, type: 3}
   cost: 10
   monstersPool:
   - {fileID: 11400000, guid: 3d0ff115c75a34ad4ae9de39f0cd550f, type: 2}

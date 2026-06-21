@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: 100000_currency
   title: Money Talks
-  description: Are you splitting money with those who made them for you?
+  objective: Earn 100000 Coins
+  description: That's a lot of money! Maybe donate some to a good cause
   icon: {fileID: -7258765353044045280, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
   rewardCurrency: 200

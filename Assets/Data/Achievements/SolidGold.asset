@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: legendary_unlocked
   title: Solid Gold
-  description: Is the game starting to feel better now that you've took the hang
-    of it? I hope so pwease ^^
+  objective: View a Legendary monster for the first time
+  description: "So that\u2019s what perfection looks like..."
   icon: {fileID: -7484656994866864400, guid: 16afbb3f30a911e5bb94a936a0bab1d5, type: 3}
   rewardCurrency: 200

@@ -5,8 +5,8 @@ public class Achievement : ScriptableObject
 {
     public string achievementId;
     public string title;
-    public string objective;
-    public string description;
+    [TextArea] public string objective;
+    [TextArea] public string description;
     public Sprite icon;
     public double rewardCurrency; // 0 if no reward
 }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: secret_unlocked
   title: The Divinity's Power
+  objective: Secret Achievement - Play more to unlock it
   description: How does it feel to embrace the power of a literal god?
   icon: {fileID: 3204515261112718985, guid: b3e4aa3a43db4d8b991886be44ed2868, type: 3}
   rewardCurrency: 1000

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: 1000_currency
   title: Hustler
-  description: You're starting to make some serious money, now time to pay taxes...
-    JK. But seriously, feed your monsters.
+  objective: Earn 1000 Coins
+  description: You're starting to make some serious money, now time to pay your taxes
   icon: {fileID: -5331089552188255770, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
   rewardCurrency: 100

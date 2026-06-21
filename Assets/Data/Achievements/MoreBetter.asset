@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: tenth_keep
   title: More = Better
-  description: Your roster is rising steadily, pay attention to food and commodities
-    bills.
+  objective: Keep a monster for the tenth time
+  description: Your roster is rising steadily, now you gotta get 'em all.
   icon: {fileID: -6055076296428364155, guid: 875ba63a222e25574a2212e3f9afec90, type: 3}
   rewardCurrency: 200

@@ -27,6 +27,8 @@ public class RevealController : MonoBehaviour
         currentMonster = monsterData;
         isCurrentMonsterShiny = isShiny;
 
+        AudioManager.Instance.PlayBoxRipSFX();
+
         if(currentMonster.rarity == Rarity.Legendary)
             AchivementManager.Instance.TryUnlock("legendary_unlocked");
 

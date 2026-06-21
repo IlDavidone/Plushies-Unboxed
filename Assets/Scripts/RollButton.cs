@@ -8,6 +8,13 @@ public class RollButton : MonoBehaviour
     [SerializeField] private RevealController revealController;
     [SerializeField] private RarityConfig[] rarityConfigs;
 
+    public MonsterBoxes GetBox() => monsterBox;
+
+    public void SetBox(MonsterBoxes box)
+    {
+        monsterBox = box;
+    }
+
     public void Click()
     {
         if(!CurrencyManager.Instance.TrySpend(monsterBox.cost)) return;

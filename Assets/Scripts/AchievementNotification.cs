@@ -31,6 +31,7 @@ public class AchievementNotification : MonoBehaviour
         descriptionText.text = achievement.description;
 
         notificationRoot.SetActive(true);
+        AudioManager.Instance.PlayRandomSqueakySound();
 
         yield return new WaitForSeconds(notificationDuration);
 

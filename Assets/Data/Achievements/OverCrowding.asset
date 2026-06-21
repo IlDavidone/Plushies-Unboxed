@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Achievement
   achievementId: all_discovered
   title: Overcrowding
-  description: Ever had the instinct that you were a good owner and person... YOU
-    DID IT!!!
+  objective: Discover all the monsters available in the base box
+  description: Things are getting a little crowded in here, we should buy an ac unit.
   icon: {fileID: -5693113391141018633, guid: 0b47711f0932c2683908fb9f601a9598, type: 3}
   rewardCurrency: 500
