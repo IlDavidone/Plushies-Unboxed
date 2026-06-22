@@ -16,5 +16,5 @@ MonoBehaviour:
   title: Money Talks
   objective: Earn 100000 Coins
   description: That's a lot of money! Maybe donate some to a good cause
-  icon: {fileID: -7258765353044045280, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 200

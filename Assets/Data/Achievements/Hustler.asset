@@ -16,5 +16,5 @@ MonoBehaviour:
   title: Hustler
   objective: Earn 1000 Coins
   description: You're starting to make some serious money, now time to pay your taxes
-  icon: {fileID: -5331089552188255770, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 100

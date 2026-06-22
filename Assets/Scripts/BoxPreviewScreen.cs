@@ -1,5 +1,5 @@
+using System.Linq;
 using TMPro;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +14,11 @@ public class BoxPreviewScreen : MonoBehaviour
     [SerializeField] private Button openButton;
 
     [Space]
-    [SerializeField] private RollButton rollButton;
     [SerializeField] private GachaManager gachaManager;
 
     [Header("Probability Grid")]
     [SerializeField] Transform gridContainer;
-    [SerializeField] 
+    [SerializeField] ProbabilityCell cellPrefab;
 
     private MonsterBoxes currentBox;
 
@@ -38,7 +37,7 @@ public class BoxPreviewScreen : MonoBehaviour
         boxNameText.text = box.boxName;
         boxCostText.text = $"{box.cost:F0}";
 
-        rollButton.SetBox(box);
+        PopulateProbabilityGrid(box);
 
         screenRoot.SetActive(true);
     }
@@ -57,17 +56,19 @@ public class BoxPreviewScreen : MonoBehaviour
         foreach(var m in box.monstersPool)
             totalWeight += m.rollWeight;
 
-        foreach(var m in box.monstersPool)
+        var sortedMonsters = box.monstersPool.OrderByDescending(m => m.rollWeight);
+
+        foreach(var m in sortedMonsters)
         {
             float chancePercentual = (m.rollWeight / totalWeight) * 100f;
-            //ProbabiltyCell cell = Instantiate(cellPrefab, gridContainer);
-            //cell.Setup(m, chancePercentual);
+            ProbabilityCell cell = Instantiate(cellPrefab, gridContainer);
+            cell.Setup(m, chancePercentual);
         }
     }
 
     private void OnConfirmRollPressed()
     {
-        rollButton.Click();
+        BoxesManager.Instance.OpenBoxFromPreview(currentBox);
         Close();
     }
 }

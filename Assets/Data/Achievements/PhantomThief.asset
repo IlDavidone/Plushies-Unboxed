@@ -16,5 +16,5 @@ MonoBehaviour:
   title: Take Your Heart
   objective: I am thou, Thou art I... You have acquired a new vow
   description: The Show's Over.
-  icon: {fileID: 6069393626007769617, guid: ae4c0287f95eb5ad88dac8dfbc4b972f, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 500

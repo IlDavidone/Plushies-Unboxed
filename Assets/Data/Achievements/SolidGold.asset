@@ -16,5 +16,5 @@ MonoBehaviour:
   title: Solid Gold
   objective: View a Legendary monster for the first time
   description: "So that\u2019s what perfection looks like..."
-  icon: {fileID: -7484656994866864400, guid: 16afbb3f30a911e5bb94a936a0bab1d5, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 200

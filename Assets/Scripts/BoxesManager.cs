@@ -14,6 +14,7 @@ public class BoxesManager : MonoBehaviour
     [SerializeField] private RarityConfig[] rarityConfigs;
     
     [SerializeField] private GachaManager gachaManager;
+    [SerializeField] private BoxPreviewScreen boxPreviewScreen;
 
     [SerializeField] private TMP_Text boxNameText;  
     [SerializeField] private RectTransform boxImageRect;
@@ -46,7 +47,7 @@ public class BoxesManager : MonoBehaviour
         
         leftArrowButton.onClick.AddListener(CyclePrevious);
         rightArrowButton.onClick.AddListener(CycleNext);
-        boxButton.onClick.AddListener(OpenBox);
+        boxButton.onClick.AddListener(OnBoxButtonClicked);
 
         originalPosition = boxImageRect.anchoredPosition;
 
@@ -125,5 +126,20 @@ public class BoxesManager : MonoBehaviour
         RarityConfig config = Array.Find(rarityConfigs, r => r.rarity == result.monster.rarity);
     
         revealController.PlayReveal(result.monster, result.isShiny, config);
+    }
+
+    public void OpenBoxFromPreview(MonsterBoxes box)
+    {
+        if (!CurrencyManager.Instance.TrySpend(box.cost)) return;
+
+        AchivementManager.Instance.TryUnlock("first_box");
+        var result = gachaManager.RollMonster(box);
+        RarityConfig config = Array.Find(rarityConfigs, r => r.rarity == result.monster.rarity);
+        revealController.PlayReveal(result.monster, result.isShiny, config);
+    }
+
+    private void OnBoxButtonClicked()
+    {
+        boxPreviewScreen.Open(monsterBoxes[currentBoxIndex]);
     }
 }

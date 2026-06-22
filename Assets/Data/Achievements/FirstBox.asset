@@ -16,5 +16,5 @@ MonoBehaviour:
   title: First Box
   objective: Open your first box
   description: You did it! Now comes the choice...
-  icon: {fileID: -5361819309070557039, guid: d94e46d5aa8dbf217ab924259b0128bb, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 100

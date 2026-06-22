@@ -16,5 +16,5 @@ MonoBehaviour:
   title: More = Better
   objective: Keep a monster for the tenth time
   description: Your roster is rising steadily, now you gotta get 'em all.
-  icon: {fileID: -6055076296428364155, guid: 875ba63a222e25574a2212e3f9afec90, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 200

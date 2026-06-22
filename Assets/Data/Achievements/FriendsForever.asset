@@ -16,5 +16,5 @@ MonoBehaviour:
   title: Friends Forever
   objective: 'Keep a monster for the first time '
   description: 'You chose to keep this monster huh? Take good care of him '
-  icon: {fileID: 9121272654192058476, guid: c44ac221a1c658d64b4307e5b50e8d4f, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 100

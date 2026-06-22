@@ -17,5 +17,5 @@ MonoBehaviour:
   objective: Earn 10000 Coins
   description: Don't let the money get to your head, buy your plushies something
     nice...
-  icon: {fileID: 7810149577246272823, guid: c88ef9eaf5b66934fb6b7f80bb96d02a, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 200

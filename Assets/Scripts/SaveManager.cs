@@ -34,48 +34,63 @@ public class SaveManager : MonoBehaviour
             savedAchievements = new List<string>(AchivementManager.Instance.GetUnlockedSnapshot())
         };
  
-        File.WriteAllText(SavePath, JsonUtility.ToJson(data));
+        string json = JsonUtility.ToJson(data);
+
+        #if UNITY_WEBGL
+            PlayerPrefs.SetString("SaveData", json);
+            PlayerPrefs.Save();
+        #else
+            File.WriteAllText(SavePath, json);
+        #endif
     }
  
     public void Load()
     {
-        if (!File.Exists(SavePath)) return;
- 
-        SaveData save;
+        string json = null;
+
+        #if UNITY_WEBGL
+            if (PlayerPrefs.HasKey("SaveData"))
+                json = PlayerPrefs.GetString("SaveData");
+        #else
+            if (File.Exists(SavePath))
+                json = File.ReadAllText(SavePath);
+        #endif
+
+        if (string.IsNullOrEmpty(json)) return;
+
         try
         {
-            save = JsonUtility.FromJson<SaveData>(File.ReadAllText(SavePath));
+            SaveData save = JsonUtility.FromJson<SaveData>(json);
+            
+            CurrencyManager.Instance.currency = save.currency;
+            CurrencyManager.Instance.totalCurrencyEarned = save.totalCurrencyEarned;
+            CurrencyManager.Instance.idleIncomeMultiplier = save.idleIncomeMultiplier;
+    
+            CollectionManager.Instance.LoadFromSnapshot(new List<OwnedMonster>(save.ownedMonsters));
+    
+            // ShelfManager.Awake() must have already run and created fresh slots
+            // before this Load() call -- it only mutates existing slots, never recreates the array.
+            ShelfManager.Instance.LoadFromSnapshot(save.shelfSlots);
+            CounterManager.Instance.LoadFromSnapshot(save.counterSlots);
+
+            AchivementManager.Instance.LoadFromSnapshot(save.savedAchievements);
+    
+            if (DateTime.TryParse(save.lastSaveTimeUTC, null,
+                System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastTime))
+            {
+                double elapsedSeconds = (DateTime.UtcNow - lastTime).TotalSeconds;
+                elapsedSeconds = Math.Min(elapsedSeconds, 86400 * 2);
+    
+                float income = ShelfManager.Instance.GetTotalIncome() * CurrencyManager.Instance.idleIncomeMultiplier;
+                double offlineEarnings = income * elapsedSeconds;
+    
+                if (offlineEarnings > 0)
+                    ShowOfflineEarningsPopup(offlineEarnings);
+            }
         }
         catch (Exception e)
         {
-            Debug.LogError($"Load failed, save file may be corrupted: {e}");
-            return;
-        }
- 
-        CurrencyManager.Instance.currency = save.currency;
-        CurrencyManager.Instance.totalCurrencyEarned = save.totalCurrencyEarned;
-        CurrencyManager.Instance.idleIncomeMultiplier = save.idleIncomeMultiplier;
- 
-        CollectionManager.Instance.LoadFromSnapshot(new List<OwnedMonster>(save.ownedMonsters));
- 
-        // ShelfManager.Awake() must have already run and created fresh slots
-        // before this Load() call -- it only mutates existing slots, never recreates the array.
-        ShelfManager.Instance.LoadFromSnapshot(save.shelfSlots);
-        CounterManager.Instance.LoadFromSnapshot(save.counterSlots);
-
-        AchivementManager.Instance.LoadFromSnapshot(save.savedAchievements);
- 
-        if (DateTime.TryParse(save.lastSaveTimeUTC, null,
-            System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastTime))
-        {
-            double elapsedSeconds = (DateTime.UtcNow - lastTime).TotalSeconds;
-            elapsedSeconds = Math.Min(elapsedSeconds, 86400 * 2);
- 
-            float income = ShelfManager.Instance.GetTotalIncome() * CurrencyManager.Instance.idleIncomeMultiplier;
-            double offlineEarnings = income * elapsedSeconds;
- 
-            if (offlineEarnings > 0)
-                ShowOfflineEarningsPopup(offlineEarnings);
+            Debug.LogError($"Load failed: {e}");
         }
     }
  

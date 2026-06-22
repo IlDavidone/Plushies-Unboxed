@@ -16,5 +16,5 @@ MonoBehaviour:
   title: It Wasn't About Money
   objective: Earn 1000000 Coins
   description: You won, but at what cost?
-  icon: {fileID: 7675826601332790545, guid: f5a2ce40b12fa88ce927de7dc3adb0ce, type: 3}
+  icon: {fileID: -4887975441076544413, guid: 7794611edc4f4724bab3dca6df581d7a, type: 3}
   rewardCurrency: 200
