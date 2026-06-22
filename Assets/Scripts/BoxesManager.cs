@@ -117,7 +117,11 @@ public class BoxesManager : MonoBehaviour
 
     private void OpenBox()
     {
-        if(!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost)) return;
+        if (!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost - CounterManager.Instance.GetBoxCostReduction((float)monsterBoxes[currentBoxIndex].cost)))
+        {
+            ToastMessage.Instance.Show("Not enough money to buy this");
+            return;
+        }
 
         AchivementManager.Instance.TryUnlock("first_box");
 
@@ -130,7 +134,11 @@ public class BoxesManager : MonoBehaviour
 
     public void OpenBoxFromPreview(MonsterBoxes box)
     {
-        if (!CurrencyManager.Instance.TrySpend(box.cost)) return;
+        if (!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost - CounterManager.Instance.GetBoxCostReduction((float)monsterBoxes[currentBoxIndex].cost)))
+        {
+            ToastMessage.Instance.Show("Not enough money to buy this");
+            return;
+        }
 
         AchivementManager.Instance.TryUnlock("first_box");
         var result = gachaManager.RollMonster(box);

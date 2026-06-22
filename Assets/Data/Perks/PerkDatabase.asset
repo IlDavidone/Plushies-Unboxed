@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28bd8791c96840743858c0c585a8a73f, type: 3}
+  m_Name: PerkDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::PerkDatabase
+  perks:
+  - perkId: 0
+    title: Sparkle Dust
+    description: +5% On self shelf income
+    icon: {fileID: 0}
+  - perkId: 1
+    title: Quick Paws
+    description: +2% Global shiny chance
+    icon: {fileID: 0}
+  - perkId: 2
+    title: Cozy Corner
+    description: +10% On self shelf income
+    icon: {fileID: 0}
+  - perkId: 3
+    title: Lucky Swing
+    description: -1 Global box pity threshold (Excl. Exclusive Pity)
+    icon: {fileID: 0}
+  - perkId: 4
+    title: Productive Pal
+    description: +3% On self shelf income
+    icon: {fileID: 0}
+  - perkId: 5
+    title: Gift Paper
+    description: -1% Global box cost
+    icon: {fileID: 0}

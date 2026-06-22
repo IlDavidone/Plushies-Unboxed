@@ -61,6 +61,7 @@ public class ShelfManager : MonoBehaviour
                 return true;
             }
         }
+
         Debug.Log("[ShelfManager] No empty slot available, all full.");
         return false;
     }
@@ -120,7 +121,7 @@ public class ShelfManager : MonoBehaviour
             float income = (float)data.baseIncome;
             if (slot.displayedMonster.isShiny) income *= (float)data.shinySellValueMultiplier;
  
-            total += (income * slot.slotMultiplier) * CounterManager.Instance.GetShelfIncomeMultiplier();
+            total += (income * slot.slotMultiplier) * CounterManager.Instance.GetShelfIncomeMultiplier() * GetPerkIncomeMult(slot.displayedMonster.perk1) * GetPerkIncomeMult(slot.displayedMonster.perk2);
         }
         Debug.Log($"Total Shelves Income: {total}");
         return total;
@@ -142,6 +143,8 @@ public class ShelfManager : MonoBehaviour
         float bonus = 0f;
         foreach(var slot in slots)
         {
+            if (slot.IsEmpty) continue;
+
             if(slot.displayedMonster.perk1 == PerkID.QuickPaws) bonus += 0.02f;
             if(slot.displayedMonster.perk2 == PerkID.QuickPaws) bonus += 0.02f;
         }
@@ -153,6 +156,8 @@ public class ShelfManager : MonoBehaviour
         int pityReduction = 0;
         foreach(var slot in slots)
         {
+            if (slot.IsEmpty) continue;
+
             if(slot.displayedMonster.perk1 == PerkID.LuckySwing) pityReduction++;
             if(slot.displayedMonster.perk2 == PerkID.LuckySwing) pityReduction++;
         }
@@ -164,6 +169,8 @@ public class ShelfManager : MonoBehaviour
         int boxCostReduction = 0;
         foreach(var slot in slots)
         {
+            if (slot.IsEmpty) continue;
+            
             if(slot.displayedMonster.perk1 == PerkID.GiftPaper) boxCostReduction++;
             if(slot.displayedMonster.perk2 == PerkID.GiftPaper) boxCostReduction++;
         }

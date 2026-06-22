@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddb2ed2f1ca75d6584ae9700df8d602, type: 3}
+  m_Name: AbilityDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDatabase
+  abilities:
+  - abilityId: 0
+    title: None
+    description: Plushie needs to be at least Legendary to have an innate ability
+    icon: {fileID: 0}
+  - abilityId: 1
+    title: Lucky Coin
+    description: Imbued with gods luck, this plushie gives +5% Global shiny chance
+    icon: {fileID: 0}
+  - abilityId: 2
+    title: Bargain Master
+    description: 'This monster can manipulate every price giving -20% Global box
+      cost reduction '
+    icon: {fileID: 0}
+  - abilityId: 3
+    title: Take Your Heart
+    description: 'Paraguise is here to steal your heart, and some rarities... -5
+      Global pity threshold. '
+    icon: {fileID: 0}
+  - abilityId: 4
+    title: Speedy Roll
+    description: (Monster) knows how to play markets to it's advantage. +1 Free Random
+      box roll every 60s.
+    icon: {fileID: 0}
+  - abilityId: 5
+    title: Tavern Ambience
+    description: 'You suddently feel at home, surrounded by comrades. x2 Global Shelves
+      Income. '
+    icon: {fileID: 0}

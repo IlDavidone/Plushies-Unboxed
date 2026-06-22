@@ -51,7 +51,7 @@ public class CounterManager : MonoBehaviour
 
     void Update()
     {
-        if (!HasAbility(AbiltyID.CrowdPleaser)) return;
+        if (!HasAbility(AbiltyID.TakeYourHeart)) return;
 
         crowdPleaserTimer += Time.deltaTime;
         if (crowdPleaserTimer >= 60f)
@@ -70,7 +70,11 @@ public class CounterManager : MonoBehaviour
 
     public bool TryPlace(int index, OwnedMonster monster)
     {
-        if (index < 0 || index >= counterSlots.Length) return false;
+        if (index < 0 || index >= counterSlots.Length)
+        {
+            ToastMessage.Instance.Show("All counter slots are occupied");
+            return false;
+        }
         if (!counterSlots[index].IsEmpty) return false;
 
         if (EquipmentChecker.IsEquippedAnywhere(monster.instanceId))
@@ -153,7 +157,6 @@ public class CounterManager : MonoBehaviour
             if(slot.IsEmpty) continue;
             AbiltyID abiltyID = GetAbility(slot.displayedMonster.monsterName);
 
-            if (abiltyID == AbiltyID.GoldenPaw) mult *= 1.25f;
             if (abiltyID == AbiltyID.TavernAmbience) mult *= 2f;
         }
 
@@ -167,11 +170,19 @@ public class CounterManager : MonoBehaviour
         return bonus;
     }
 
-    public float GetBoxCostDiscount()
+    public int GetBoxPityReduction()
     {
-        float discount = 0f;
-        if (HasAbility(AbiltyID.BargainMaster)) discount += 0.2f;
-        return Mathf.Clamp(discount, 0f, 0.9f);
+        int pityReduction = 0;
+        if(HasAbility(AbiltyID.TakeYourHeart)) pityReduction = 5;
+        return pityReduction;
+    }
+
+    public double GetBoxCostReduction(double cost)
+    {
+        if (HasAbility(AbiltyID.BargainMaster))
+            return cost * 0.20;
+
+        return 0;
     }
 
     //helpers

@@ -19,11 +19,17 @@ public class MonsterDetailPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI monsterId;
     [SerializeField] private TextMeshProUGUI rarityText;
-    [SerializeField] private TextMeshProUGUI flavorText;
     [SerializeField] private TextMeshProUGUI incomeText;
     [SerializeField] private TextMeshProUGUI sellValueText;
-    [SerializeField] private TextMeshProUGUI perk1;
-    [SerializeField] private TextMeshProUGUI perk2;
+    [SerializeField] private Image perk1Icon;
+    [SerializeField] private TextMeshProUGUI perk1Title;
+    [SerializeField] private TextMeshProUGUI perk1Description;
+    [SerializeField] private Image perk2Icon;
+    [SerializeField] private TextMeshProUGUI perk2Title;
+    [SerializeField] private TextMeshProUGUI perk2Description;
+    [SerializeField] private Image abilityIcon;
+    [SerializeField] private TextMeshProUGUI abilityTitle;
+    [SerializeField] private TextMeshProUGUI abilityDescription;
     [SerializeField] private TextMeshProUGUI uniquePowerText;
     [SerializeField] private Button equipCounterButton;
     [SerializeField] private Button equipButton;
@@ -33,6 +39,8 @@ public class MonsterDetailPanel : MonoBehaviour
 
     [Space]
     public ShelfView shelfView;
+    public PerkDatabase perkDatabase;
+    public AbilityDatabase abilityDatabase;
     public CounterButton counterButton1;
     public CounterButton counterButton2;
 
@@ -52,17 +60,32 @@ public class MonsterDetailPanel : MonoBehaviour
         currentInstance = monsterInstance;
         currentMonsterData = monster;
 
+        PerkDefinition perk1 = perkDatabase.Get(monsterInstance.perk1);
+        PerkDefinition perk2 = perkDatabase.Get(monsterInstance.perk2);
+
+        AbilityDefinition ability = abilityDatabase.Get(monster.uniquePowerId);
+
         monsterIcon.sprite = monsterInstance.isShiny ? monster.shinyIcon : monster.baseIcon;
         nameText.text = monster.monsterName;
         rarityText.text = monster.rarity.ToString();
-        flavorText.text = monster.flavorText;
         incomeText.text = $"Income: ${monster.baseIncome:F1}/sec";
         sellValueText.text = $"Sell Value: ${monster.sellValue:F0}";
         uniquePowerText.text = monster.uniquePowerId != AbiltyID.None
             ? monster.uniquePowerDescription
             : "No unique power";
-        perk1.text = "Perk 1: " + monsterInstance.perk1;
-        perk2.text = "Perk 2: " + monsterInstance.perk2;
+
+        abilityTitle.text = "Innate Ability: " + ability.title;
+        abilityDescription.text = ability.description;
+        abilityIcon.sprite = ability.icon;
+        
+        perk1Title.text = "Perk 1: " + perk1.title;
+        perk1Description.text = perk1.description;
+        perk1Icon.sprite = perk1.icon;
+
+        perk2Title.text = "Perk 2: " + perk2.title;
+        perk2Description.text = perk2.description;
+        perk2Icon.sprite = perk2.icon;
+
         monsterId.text = monsterInstance.instanceId;
 
         RefreshEquipButtons();
@@ -89,7 +112,7 @@ public class MonsterDetailPanel : MonoBehaviour
     {
         bool placed = ShelfManager.Instance.TryPlace(currentInstance);
         if (!placed)
-            Debug.Log("Shelf full or already equipped, cannot equip.");
+            ToastMessage.Instance.Show("Not Equipped - No empty shelf slot available");
 
         shelfView.RefreshView();
         RefreshEquipButtons();

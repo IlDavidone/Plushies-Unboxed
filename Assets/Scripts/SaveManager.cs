@@ -96,7 +96,7 @@ public class SaveManager : MonoBehaviour
  
     private void ShowOfflineEarningsPopup(double amount)
     {
-        Debug.Log($"Welcome back! You earned {amount:F0} while offline!");
+        ToastMessage.Instance.Show($"You made {amount:F0} coins while idle!");
         CurrencyManager.Instance.AddCurrency(amount);
     }
  

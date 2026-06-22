@@ -35,7 +35,10 @@ public class BoxPreviewScreen : MonoBehaviour
 
         boxImage.sprite = box.boxIcon;
         boxNameText.text = box.boxName;
-        boxCostText.text = $"{box.cost:F0}";
+
+        double boxCost = box.cost - CounterManager.Instance.GetBoxCostReduction(box.cost);
+
+        boxCostText.text = $"{boxCost:F0}";
 
         PopulateProbabilityGrid(box);
 

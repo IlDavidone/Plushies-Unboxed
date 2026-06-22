@@ -23,5 +23,5 @@ MonoBehaviour:
   baseIncome: 12
   sellValue: 750
   shinySellValueMultiplier: 3
-  uniquePowerId: 4
+  uniquePowerId: 3
   uniquePowerDescription: 

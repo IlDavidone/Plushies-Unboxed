@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GachaManager : MonoBehaviour
 {
-    [SerializeField] private float shinyChance = 0.5f;
+    [SerializeField] private float shinyChance = 0.01f;
 
     public List<Monsters> allMonsters;
 
@@ -32,18 +32,18 @@ public class GachaManager : MonoBehaviour
         if(!exclusiveMonsterPityCounter.ContainsKey(monsterBox))
             exclusiveMonsterPityCounter[monsterBox] = 0;
 
-        exclusiveMonsterPityCounter[monsterBox]++;
+        exclusiveMonsterPityCounter[monsterBox]++;              //shuffled functions checkers - need to order them
 
         if(exclusiveMonsterPityCounter[monsterBox] >= monsterBox.exclusiveMonsterPity)
         {
             exclusiveMonsterPityCounter[monsterBox] = 0;
             Monsters exclusiveMonster = allMonsters.Find(m => m.rarity == Rarity.Secret);
-            return (exclusiveMonster, UnityEngine.Random.value <= shinyChance);
+            return (exclusiveMonster, UnityEngine.Random.value <= shinyChance + (ShelfManager.Instance.GetGlobalShinyBonus() / 100) + (CounterManager.Instance.GetShinyChanceCounterBonus() / 100));
         }
 
         List<Monsters> pool = monsterBox.monstersPool;
 
-        if(pityCounters[monsterBox] >= monsterBox.pityThreshold)
+        if(pityCounters[monsterBox] >= monsterBox.pityThreshold - (ShelfManager.Instance.GetGlobalPityReduction() + CounterManager.Instance.GetBoxPityReduction()))
         {
             pool = monsterBox.monstersPool.FindAll(m => m.rarity >= monsterBox.guaranteedPityRarity);
             pityCounters[monsterBox] = 0;
@@ -51,10 +51,10 @@ public class GachaManager : MonoBehaviour
 
         Monsters rollResult = PickWeighted(pool);
 
-        if(rollResult.rarity >= monsterBox.guaranteedPityRarity)   //reset pity counter even if pulled rarity exceeds pity one naturally
+        if(rollResult.rarity >= monsterBox.guaranteedPityRarity)   //reset pity counter even if pulled rarity exceeds pity rarity naturally
             pityCounters[monsterBox] = 0;
 
-        bool isShiny = UnityEngine.Random.value <= shinyChance;
+        bool isShiny = UnityEngine.Random.value <= shinyChance + (ShelfManager.Instance.GetGlobalShinyBonus() / 100) + (CounterManager.Instance.GetShinyChanceCounterBonus() / 100);
 
         return (rollResult, isShiny);
     }
