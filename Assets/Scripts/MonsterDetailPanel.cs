@@ -123,7 +123,7 @@ public class MonsterDetailPanel : MonoBehaviour
         CounterSlot slot = CounterManager.Instance.GetFirstFreeSlot();
         if (slot == null)
         {
-            Debug.Log("Cannot place on counter — slots full.");
+            ToastMessage.Instance.Show("Cannot be equipped - Counter slots full");
             return;
         }
 

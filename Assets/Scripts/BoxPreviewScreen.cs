@@ -42,6 +42,8 @@ public class BoxPreviewScreen : MonoBehaviour
 
         PopulateProbabilityGrid(box);
 
+        TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnBoxPreviewOpened);
+
         screenRoot.SetActive(true);
     }
 

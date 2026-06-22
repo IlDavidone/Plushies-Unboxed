@@ -95,6 +95,8 @@ public class RevealController : MonoBehaviour
         else
             Debug.Log("Shelf full -- monster kept in collection but not displayed.");
 
+        TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnKeepOrSell);
+
         revealPanel.SetActive(false);
     }
  
@@ -103,6 +105,8 @@ public class RevealController : MonoBehaviour
         CurrencyManager.Instance.AddCurrency(amount);
 
         AchivementManager.Instance.TryUnlock("monster_sell");
+
+        TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnKeepOrSell);
 
         revealPanel.SetActive(false);
     }

@@ -11,6 +11,7 @@ public class CollectionGridPopulator : MonoBehaviour
 
     void OnEnable()
     {
+        TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnCollectionOpened);
         RefreshGrid();
     }
 

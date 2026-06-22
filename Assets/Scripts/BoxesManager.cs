@@ -117,7 +117,7 @@ public class BoxesManager : MonoBehaviour
 
     private void OpenBox()
     {
-        if (!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost - CounterManager.Instance.GetBoxCostReduction((float)monsterBoxes[currentBoxIndex].cost)))
+        if (!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost - CounterManager.Instance.GetBoxCostReduction(monsterBoxes[currentBoxIndex].cost)))
         {
             ToastMessage.Instance.Show("Not enough money to buy this");
             return;
@@ -128,13 +128,15 @@ public class BoxesManager : MonoBehaviour
         var result = gachaManager.RollMonster(monsterBoxes[currentBoxIndex]);
 
         RarityConfig config = Array.Find(rarityConfigs, r => r.rarity == result.monster.rarity);
+
+        TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnRollPerformed);
     
         revealController.PlayReveal(result.monster, result.isShiny, config);
     }
 
     public void OpenBoxFromPreview(MonsterBoxes box)
     {
-        if (!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost - CounterManager.Instance.GetBoxCostReduction((float)monsterBoxes[currentBoxIndex].cost)))
+        if (!CurrencyManager.Instance.TrySpend(monsterBoxes[currentBoxIndex].cost - CounterManager.Instance.GetBoxCostReduction(monsterBoxes[currentBoxIndex].cost)))
         {
             ToastMessage.Instance.Show("Not enough money to buy this");
             return;
@@ -143,6 +145,9 @@ public class BoxesManager : MonoBehaviour
         AchivementManager.Instance.TryUnlock("first_box");
         var result = gachaManager.RollMonster(box);
         RarityConfig config = Array.Find(rarityConfigs, r => r.rarity == result.monster.rarity);
+
+        TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnRollPerformed);
+
         revealController.PlayReveal(result.monster, result.isShiny, config);
     }
 
