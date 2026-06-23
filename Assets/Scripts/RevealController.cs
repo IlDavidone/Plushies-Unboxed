@@ -7,7 +7,7 @@ public class RevealController : MonoBehaviour
 {
     [SerializeField] private GameObject revealPanel;
     [SerializeField] private ShelfView shelfView;
-    [SerializeField] private TextMeshProUGUI nameText, rarityText, sellValueText, perkText1, perkText2;
+    [SerializeField] private TextMeshProUGUI nameText, rarityText, sellValueText, incomeText, perkText1, perkText2;
     [SerializeField] private Image monsterIcon;
     [SerializeField] private Button keepButton, sellButton;
     [SerializeField] private GameObject shinyVFX;
@@ -27,7 +27,7 @@ public class RevealController : MonoBehaviour
         currentMonster = monsterData;
         isCurrentMonsterShiny = isShiny;
 
-        AudioManager.Instance.PlayBoxRipSFX();
+        AudioManager.Instance.PlayBoxRip();
 
         if(currentMonster.rarity == Rarity.Legendary)
             AchivementManager.Instance.TryUnlock("legendary_unlocked");
@@ -60,6 +60,10 @@ public class RevealController : MonoBehaviour
             ? currentMonster.sellValue * currentMonster.shinySellValueMultiplier
             : currentMonster.sellValue;
         sellValueText.text = $"Sell: ${sellPrice:F0}";
+        
+        double income = isCurrentMonsterShiny ? currentMonster.baseIncome * currentMonster.shinySellValueMultiplier : currentMonster.baseIncome;
+        incomeText.text = $"Income: {income:F1}/s";
+
 
         perkText1.text = $"Perk 1: {newMonsterInstance.perk1}";
         perkText2.text = $"Perk 2: {newMonsterInstance.perk2}";

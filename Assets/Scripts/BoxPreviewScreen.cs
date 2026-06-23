@@ -13,6 +13,12 @@ public class BoxPreviewScreen : MonoBehaviour
     [SerializeField] private Button closingButton;
     [SerializeField] private Button openButton;
 
+    [SerializeField] private Image pityFill;
+    [SerializeField] private TMP_Text pityText;
+
+    [SerializeField] private Image exclusivePityFill;
+    [SerializeField] private TMP_Text exclusivePityText;
+
     [Space]
     [SerializeField] private GachaManager gachaManager;
 
@@ -41,6 +47,8 @@ public class BoxPreviewScreen : MonoBehaviour
         boxCostText.text = $"{boxCost:F0}";
 
         PopulateProbabilityGrid(box);
+
+        UpdatePityBar(box);
 
         TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnBoxPreviewOpened);
 
@@ -71,9 +79,29 @@ public class BoxPreviewScreen : MonoBehaviour
         }
     }
 
+    private void UpdatePityBar(MonsterBoxes box)
+    {
+        int pity = gachaManager.GetPityCount(box);
+        int pityThreshold = gachaManager.GetEffectivePityThreshold(box);
+
+        pityFill.fillAmount = Mathf.Clamp01((float)pity / pityThreshold);
+        pityText.text = $"{pityThreshold - pity} pulls left to find a guaranteed <color=#FF49D9> Epic+ <color=white> plushie";
+
+        int exclusivePity = gachaManager.GetExclusivePityCount(box);
+        int exclusiveThreshold = box.exclusiveMonsterPity;
+
+        exclusivePityFill.fillAmount =
+            Mathf.Clamp01((float)exclusivePity / exclusiveThreshold);
+
+        exclusivePityText.text = $"{exclusiveThreshold - exclusivePity} pulls left to find a <color=#FF3D50> Secret <color=white> plushie";
+    }
+
     private void OnConfirmRollPressed()
     {
         BoxesManager.Instance.OpenBoxFromPreview(currentBox);
+
+        UpdatePityBar(currentBox);
+
         Close();
     }
 }

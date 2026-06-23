@@ -80,4 +80,30 @@ public class GachaManager : MonoBehaviour
 
         return pool[pool.Count - 1];
     }
+
+    public int GetPityCount(MonsterBoxes box)
+    {
+        if (!pityCounters.ContainsKey(box))
+            return 0;
+
+        return pityCounters[box];
+    }
+
+    public int GetExclusivePityCount(MonsterBoxes box)
+    {
+        if (!exclusiveMonsterPityCounter.ContainsKey(box))
+            return 0;
+
+        return exclusiveMonsterPityCounter[box];
+    }
+
+    public int GetEffectivePityThreshold(MonsterBoxes box)
+    {
+        return Mathf.Max(
+            1,
+            box.pityThreshold -
+            (ShelfManager.Instance.GetGlobalPityReduction() +
+            CounterManager.Instance.GetBoxPityReduction())
+        );
+    }
 }

@@ -21,6 +21,9 @@ public class ToastMessage : MonoBehaviour
     [SerializeField] private float onScreenY = 100f;   // final resting Y position (from bottom)
 
     private Coroutine activeToast;
+    private bool enabled = true;
+
+    public void SetEnabled(bool value) => enabled = value;
 
     void Awake()
     {
@@ -30,7 +33,9 @@ public class ToastMessage : MonoBehaviour
     }
 
     public void Show(string message, Sprite iconSprite = null)
-    {
+    {   
+        if(!enabled) return;
+
         if (activeToast != null)
             StopCoroutine(activeToast);
 

@@ -6,8 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [Header("Audio Source")]
+    [Header("Audio Sources")]
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource sfxSource;
 
     [Header("Background Music")]
     [SerializeField] private AudioClip backgroundTheme1;
@@ -23,46 +25,73 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if(Instance != null)
-        {
-            return;
-        }
-
+        if (Instance != null) return;
         Instance = this;
     }
 
     void Start()
     {
+        LoadVolumes();
         StartCoroutine(StartBackgroundOst());
     }
 
-    public void PlayBoxRipSFX()
+
+    public void SetMusicVolume(float value)
     {
-        audioSource.PlayOneShot(boxRipSFX);
+        musicSource.volume = value;
     }
 
-    public void PlayRandomSqueakySound()
+    public void SetSFXVolume(float value)
     {
-        int randomIndex = UnityEngine.Random.Range(0, squeakySFX.Length);
+        audioSource.volume = value;
+        if (sfxSource != null) sfxSource.volume = value;
+    }
 
+    public void SetMasterVolume(float value)
+    {
+        AudioListener.volume = value; // affects all audio globally
+    }
+
+    private void LoadVolumes()
+    {
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.6f));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0.8f));
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1f));
+    }
+
+
+    public void PlayCashRegister() => audioSource.PlayOneShot(cashRegisterSFX);
+    public void PlayTapePeel() => audioSource.PlayOneShot(tapePeelSFX);
+    public void PlayUIOpen() => audioSource.PlayOneShot(uiOpenSFX);
+    public void PlayUIClose() => audioSource.PlayOneShot(uiCloseSFX);
+    public void PlayError() => audioSource.PlayOneShot(errorSFX);
+    public void PlayBoxRip() => audioSource.PlayOneShot(boxRipSFX);
+
+    public void PlayRandomSqueaky()
+    {
+        if (squeakySFX.Length == 0) return;
+        int randomIndex = UnityEngine.Random.Range(0, squeakySFX.Length);
         audioSource.PlayOneShot(squeakySFX[randomIndex]);
     }
 
+
     private IEnumerator StartBackgroundOst()
     {
-        AudioClip[] backgroundTracks = {backgroundTheme1, backgroundTheme2};
+        AudioClip[] backgroundTracks = { backgroundTheme1, backgroundTheme2 };
         int index = UnityEngine.Random.Range(0, backgroundTracks.Length);
 
         while (true)
         {
-            audioSource.clip = backgroundTracks[index];
-            audioSource.Play();
+            if (backgroundTracks[index] == null)
+            {
+                index = (index + 1) % backgroundTracks.Length;
+                continue;
+            }
 
+            musicSource.clip = backgroundTracks[index];
+            musicSource.Play();
             yield return new WaitForSeconds(backgroundTracks[index].length);
-
             index = (index + 1) % backgroundTracks.Length;
         }
     }
 }
-
-
