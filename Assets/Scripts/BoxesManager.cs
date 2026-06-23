@@ -15,6 +15,7 @@ public class BoxesManager : MonoBehaviour
     
     [SerializeField] private GachaManager gachaManager;
     [SerializeField] private BoxPreviewScreen boxPreviewScreen;
+    [SerializeField] private BoxOpeningController boxOpeningController;
 
     [SerializeField] private TMP_Text boxNameText;  
     [SerializeField] private RectTransform boxImageRect;
@@ -148,7 +149,10 @@ public class BoxesManager : MonoBehaviour
 
         TutorialManager.Instance?.NotifyTrigger(TutorialTrigger.OnRollPerformed);
 
-        revealController.PlayReveal(result.monster, result.isShiny, config);
+        boxOpeningController.Play(() =>
+        {
+            revealController.PlayReveal(result.monster, result.isShiny, config);
+        });
     }
 
     private void OnBoxButtonClicked()

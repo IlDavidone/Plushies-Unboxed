@@ -2,14 +2,21 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class PityData
+{
+    public string boxId;
+    public int pity;
+    public int exclusivePity;
+}
+
 public class GachaManager : MonoBehaviour
 {
     [SerializeField] private float shinyChance = 0.01f;
 
     public List<Monsters> allMonsters;
 
-    private Dictionary<MonsterBoxes, int> pityCounters = new Dictionary<MonsterBoxes, int>(); 
-    private Dictionary<MonsterBoxes, int> exclusiveMonsterPityCounter = new Dictionary<MonsterBoxes, int>();
+    private Dictionary<string, PityData> pity = new();
     
     public (Monsters monster, bool isShiny) RollMonster(MonsterBoxes monsterBox)
     {
@@ -24,35 +31,38 @@ public class GachaManager : MonoBehaviour
         }
         */
 
-        if(!pityCounters.ContainsKey(monsterBox))
-            pityCounters[monsterBox] = 0;
+        if(!pity.ContainsKey(monsterBox.boxName))
+            pity[monsterBox.boxName] = new PityData
+            {
+                boxId = monsterBox.boxName,
+                pity = 0,
+                exclusivePity = 0
+            };
 
-        pityCounters[monsterBox]++;
+        var data = pity[monsterBox.boxName];
 
-        if(!exclusiveMonsterPityCounter.ContainsKey(monsterBox))
-            exclusiveMonsterPityCounter[monsterBox] = 0;
+        data.pity++;
+        data.exclusivePity++;
 
-        exclusiveMonsterPityCounter[monsterBox]++;              //shuffled functions checkers - need to order them
-
-        if(exclusiveMonsterPityCounter[monsterBox] >= monsterBox.exclusiveMonsterPity)
+        if(data.exclusivePity >= monsterBox.exclusiveMonsterPity)
         {
-            exclusiveMonsterPityCounter[monsterBox] = 0;
+            data.exclusivePity = 0;
             Monsters exclusiveMonster = allMonsters.Find(m => m.rarity == Rarity.Secret);
             return (exclusiveMonster, UnityEngine.Random.value <= shinyChance + (ShelfManager.Instance.GetGlobalShinyBonus() / 100) + (CounterManager.Instance.GetShinyChanceCounterBonus() / 100));
         }
 
         List<Monsters> pool = monsterBox.monstersPool;
 
-        if(pityCounters[monsterBox] >= monsterBox.pityThreshold - (ShelfManager.Instance.GetGlobalPityReduction() + CounterManager.Instance.GetBoxPityReduction()))
+        if(data.pity >= monsterBox.pityThreshold - (ShelfManager.Instance.GetGlobalPityReduction() + CounterManager.Instance.GetBoxPityReduction()))
         {
             pool = monsterBox.monstersPool.FindAll(m => m.rarity >= monsterBox.guaranteedPityRarity);
-            pityCounters[monsterBox] = 0;
+            data.pity = 0;
         }
 
         Monsters rollResult = PickWeighted(pool);
 
         if(rollResult.rarity >= monsterBox.guaranteedPityRarity)   //reset pity counter even if pulled rarity exceeds pity rarity naturally
-            pityCounters[monsterBox] = 0;
+            data.pity = 0;
 
         bool isShiny = UnityEngine.Random.value <= shinyChance + (ShelfManager.Instance.GetGlobalShinyBonus() / 100) + (CounterManager.Instance.GetShinyChanceCounterBonus() / 100);
 
@@ -83,18 +93,16 @@ public class GachaManager : MonoBehaviour
 
     public int GetPityCount(MonsterBoxes box)
     {
-        if (!pityCounters.ContainsKey(box))
-            return 0;
-
-        return pityCounters[box];
+        return pity.TryGetValue(box.boxName, out var data)
+            ? data.pity
+            : 0;
     }
 
     public int GetExclusivePityCount(MonsterBoxes box)
     {
-        if (!exclusiveMonsterPityCounter.ContainsKey(box))
-            return 0;
-
-        return exclusiveMonsterPityCounter[box];
+        return pity.TryGetValue(box.boxName, out var data)
+            ? data.exclusivePity
+            : 0;
     }
 
     public int GetEffectivePityThreshold(MonsterBoxes box)
@@ -105,5 +113,23 @@ public class GachaManager : MonoBehaviour
             (ShelfManager.Instance.GetGlobalPityReduction() +
             CounterManager.Instance.GetBoxPityReduction())
         );
+    }
+
+    public List<PityData> GetPitySnapshot()
+    {
+        return new List<PityData>(pity.Values);
+    }
+
+    public void LoadPitySnapshot(List<PityData> data)
+    {
+        pity.Clear();
+
+        if (data == null)
+            return;
+
+        foreach (var entry in data)
+        {
+            pity[entry.boxId] = entry;
+        }
     }
 }

@@ -11,6 +11,12 @@ public static class EquipmentChecker
     }
 }
 
+public enum DetailTab
+{
+    Info,
+    Perks
+}
+
 public class MonsterDetailPanel : MonoBehaviour
 {
     [SerializeField] private GameObject panelRoot;
@@ -21,6 +27,7 @@ public class MonsterDetailPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rarityText;
     [SerializeField] private TextMeshProUGUI incomeText;
     [SerializeField] private TextMeshProUGUI sellValueText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image perk1Icon;
     [SerializeField] private TextMeshProUGUI perk1Title;
     [SerializeField] private TextMeshProUGUI perk1Description;
@@ -37,6 +44,11 @@ public class MonsterDetailPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI equipCounterButtonLabel;
     [SerializeField] private Button closeButton;
 
+    [Space] 
+    [SerializeField] private GameObject perkTab;
+    [SerializeField] private GameObject descriptionTab;
+    [SerializeField] private Button nextTabButton;
+
     [Space]
     public ShelfView shelfView;
     public PerkDatabase perkDatabase;
@@ -46,6 +58,7 @@ public class MonsterDetailPanel : MonoBehaviour
 
     private OwnedMonster currentInstance;
     private Monsters currentMonsterData;
+    private DetailTab currentTab;
 
     void Awake()
     {
@@ -53,6 +66,19 @@ public class MonsterDetailPanel : MonoBehaviour
         equipCounterButton.onClick.AddListener(OnEquipToCounterPressed);
         equipButton.onClick.AddListener(OnEquipPressed);
         closeButton.onClick.AddListener(Close);
+        nextTabButton.onClick.AddListener(CycleTab);
+    }
+
+    private void CycleTab()
+    {
+        currentTab = (DetailTab)(((int)currentTab + 1) % 2);
+        ApplyTab();
+    }
+
+    private void ApplyTab()
+    {
+        descriptionTab.SetActive(currentTab == DetailTab.Info);
+        perkTab.SetActive(currentTab == DetailTab.Perks);
     }
 
     public void ShowDetails(OwnedMonster monsterInstance, Monsters monster)
@@ -70,6 +96,7 @@ public class MonsterDetailPanel : MonoBehaviour
         rarityText.text = monster.rarity.ToString();
         incomeText.text = $"Income: ${monster.baseIncome:F1}/sec";
         sellValueText.text = $"Sell Value: ${monster.sellValue:F0}";
+        descriptionText.text = monster.flavorText;
         uniquePowerText.text = monster.uniquePowerId != AbiltyID.None
             ? monster.uniquePowerDescription
             : "No unique power";
@@ -92,6 +119,9 @@ public class MonsterDetailPanel : MonoBehaviour
 
         panelRoot.SetActive(true);
         collectionTab.SetActive(false);
+
+        currentTab = DetailTab.Perks;
+        ApplyTab();
     }
 
     private void RefreshEquipButtons()

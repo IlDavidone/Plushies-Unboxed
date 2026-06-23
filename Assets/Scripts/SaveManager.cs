@@ -12,12 +12,15 @@ public class SaveData
     public List<OwnedMonster> ownedMonsters = new List<OwnedMonster>();
     public List<ShelfSlotSaveData> shelfSlots = new List<ShelfSlotSaveData>();
     public List<CounterSlotSaveData> counterSlots = new List<CounterSlotSaveData>();
+    public List<PityData> pityData = new();
     public List<string> savedAchievements = new List<string>();
     public string lastSaveTimeUTC;
 }
  
 public class SaveManager : MonoBehaviour
 {
+    [SerializeField] private GachaManager gachaManager;
+
     public string SavePath => Application.persistentDataPath + "/save.json";
  
     public void Save()
@@ -31,6 +34,7 @@ public class SaveManager : MonoBehaviour
             ownedMonsters = CollectionManager.Instance.GetOwnedMonstersSnapshot(),
             shelfSlots = ShelfManager.Instance.GetSaveSnapshot(),
             counterSlots = CounterManager.Instance.GetSaveSnapshot(),
+            pityData = gachaManager.GetPitySnapshot(),
             savedAchievements = new List<string>(AchivementManager.Instance.GetUnlockedSnapshot())
         };
  
@@ -72,6 +76,8 @@ public class SaveManager : MonoBehaviour
             // before this Load() call -- it only mutates existing slots, never recreates the array.
             ShelfManager.Instance.LoadFromSnapshot(save.shelfSlots);
             CounterManager.Instance.LoadFromSnapshot(save.counterSlots);
+
+            gachaManager.LoadPitySnapshot(save.pityData);
 
             AchivementManager.Instance.LoadFromSnapshot(save.savedAchievements);
     
